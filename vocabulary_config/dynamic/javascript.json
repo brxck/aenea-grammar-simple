@@ -17,7 +17,7 @@
         "else": "else",
         "else if": [{"type": "Text", "args": ["else if () {"]}, {"type": "Key", "args": ["left:3"]}],
         "extends ": "extends ",
-        "for": [{"type": "Text", "args": ["for () {"]}, {"type": "Key", "args": ["left:3"]}],
+        "for loop": [{"type": "Text", "args": ["for () {"]}, {"type": "Key", "args": ["left:3"]}],
         "false": "false",
         "finally": [{"type": "Text", "args": ["finally {"]}, {"type": "Key", "args": ["enter"]}],
         "if": "if (",
