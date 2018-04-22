@@ -38,7 +38,7 @@ if 'semicolon' not in typeables:
     typeables["semicolon"] = keyboard.get_typeable(char=';')
 
 
-release = Key("shift:up, ctrl:up, alt:up")
+release = Key("shift:up, ctrl:up, alt:up, win:up")
 
 
 def cancel_and_sleep(text=None, text2=None):
@@ -57,58 +57,38 @@ def cancel_and_sleep(text=None, text2=None):
 
 # For repeating of characters.
 specialCharMap = {
-    "(bar|vertical bar|pipe)": "|",
+    "(bar|pipe)": "|",
     "(dash|minus|hyphen)": "-",
-    "dit": ".",
-    "comma": ",",
+    "(dot|period)": ".",
+    "dit": ",",
     "backslash": "\\",
-    "underscore": "_",
-    "(star|asterisk)": "*",
+    "rail": "_",
+    "splat": "*",
     "colon": ":",
-    "(semicolon|semi-colon)": ";",
+    "semi": ";",
     "at": "@",
+    "hat": "^",    
     "[double] quote": '"',
-    "single quote": "'",
-    "hash": "#",
-    "dollar": "$",
-    "percent": "%",
-    "ampersand": "&",
+    "smote": "'",
+    "pound": "#",
+    "cash": "$",
+    "percy": "%",
+    "amp": "&",
     "slash": "/",
     "equal": "=",
-    "plus": "+",
-    "space": " ",
-
+    "cross": "+",
     "bang": "!",
-    "question": "?",
-    "caret": "^",
-    # some other symbols I haven't imported yet, lazy sorry
-    # 'ampersand': Key('ampersand'),
-    # 'apostrophe': Key('apostrophe'),
-    # 'asterisk': Key('asterisk'),
-    # 'at': Key('at'),
-    # 'backslash': Key('backslash'),
-    # 'backtick': Key('backtick'),
-    # 'bar': Key('bar'),
-    # 'caret': Key('caret'),
-    # 'colon': Key('colon'),
-    # 'comma': Key('comma'),
-    # 'dollar': Key('dollar'),
-    # #'(dot|period)': Key('dot'),
-    # 'double quote': Key('dquote'),
-    # 'equal': Key('equal'),
-    # 'bang': Key('exclamation'),
-    # 'hash': Key('hash'),
-    # 'hyphen': Key('hyphen'),
-    # 'minus': Key('minus'),
-    # 'percent': Key('percent'),
-    # 'plus': Key('plus'),
-    # 'question': Key('question'),
-    # # Getting Invalid key name: 'semicolon'
-    # #'semicolon': Key('semicolon'),
-    # 'slash': Key('slash'),
-    # '[single] quote': Key('squote'),
-    # 'tilde': Key('tilde'),
-    # 'underscore | score': Key('underscore'),
+    "backtick": "`",
+    "tilde": "~",
+    "quest": "?",
+    "left brace": "{",
+    "right brace": "}",
+    "bend": "(",
+    "rend": ")",
+    "ace": "[",
+    "race": "]",
+    "angle": "<",
+    "rangle": ">",
 }
 
 # Modifiers for the press-command.
@@ -128,32 +108,32 @@ singleModifierMap = {
 }
 
 letterMap = {
-    "(alpha|arch)": "a",
-    "(bravo|brav) ": "b",
-    "(charlie|turley|char) ": "c",
-    "(delta|del) ": "d",
-    "(echo|eck) ": "e",
-    "(foxtrot|fox) ": "f",
-    "(golf|gang) ": "g",
-    "(hotel) ": "h",
-    "(india|indigo|ish) ": "i",
-    "(juliet|julia) ": "j",
-    "(kilo) ": "k",
-    "(lima|lion|line|lie) ": "l",
-    "(mike) ": "m",
-    "(november|noy) ": "n",
-    "(Oscar|osh) ": "o",
-    "(papa|poppa|pom) ": "p",
-    "(quebec|quiche|queen) ": "q",
-    "(romeo|ree) ": "r",
-    "(sierra|soy) ": "s",
-    "(tango|tay) ": "t",
-    "(uniform|umm) ": "u",
-    "(victor|van) ": "v",
-    "(whiskey|wes) ": "w",
-    "(x-ray) ": "x",
-    "(yankee|yaa) ": "y",
-    "(zulu) ": "z",
+    "arch": "a",
+    "brav": "b",
+    "cork": "c",
+    "delta": "d",
+    "echo": "e",
+    "fox": "f",
+    "gang": "g",
+    "hoop": "h",
+    "ice": "i",
+    "juice": "j",
+    "kilo": "k",
+    "lima": "l",
+    "mike": "m",
+    "nike": "n",
+    "osh": "o",
+    "pope": "p",
+    "quack": "q",
+    "rho": "r",
+    "soy": "s",
+    "tau": "t",
+    "uni": "u",
+    "van": "v",
+    "whisk": "w",
+    "rex": "x",
+    "yoke": "y",
+    "zed": "z",
 }
 
 # generate uppercase versions of every letter
@@ -229,35 +209,63 @@ grammarCfg = Config("multi edit")
 grammarCfg.cmd = Section("Language section")
 grammarCfg.cmd.map = Item(
     {
-        # Navigation keys.
+        ### Navigation ###
         "up [<n>]": Key("up:%(n)d"),
         "down [<n>]": Key("down:%(n)d"),
         "left [<n>]": Key("left:%(n)d"),
         "right [<n>]": Key("right:%(n)d"),
-        "page up [<n>]": Key("pgup:%(n)d"),
-        "page down [<n>]": Key("pgdown:%(n)d"),
-        #"up <n> (page|pages)": Key("pgup:%(n)d"),
-        #"down <n> (page|pages)": Key("pgdown:%(n)d"),
-        #"left <n> (word|words)": Key("c-left/3:%(n)d/10"),
-        #"right <n> (word|words)": Key("c-right/3:%(n)d/10"),
+        "pinch [<n>]": Key("pgup:%(n)d"),
+        "page [<n>]": Key("pgdown:%(n)d"),
+        "left [<n>] (word|words)": Key("c-left/3:%(n)d/10"),
+        "right [<n>] (word|words)": Key("c-right/3:%(n)d/10"),
         "home": Key("home"),
-        "end": Key("end"),
+        "lend": Key("end"),
+        "lendit": Key("end, comma"),
         "doc home": Key("c-home/3"),
         "doc end": Key("c-end/3"),
-        # Functional keys.
+
+        ### Selections ###
+        "grab <n>": release + Key("shift:down, right:%(n)d, shift:up"),
+        "take <n>": release + Key("shift:down, left:%(n)d, shift:up"),
+        "take <n> (line|lines)": release + Key("end, shift:down, home, up:%(n)d, home, shift:up"),
+        "grab <n> (line|lines)": release + Key("home, shift:down, down:%(n)d, end, shift:up"),
+        "grab <n> (word|words)": release + Key("shift:down, c-right:%(n)d, shift:up"),
+        "take <n> (word|words)": release + Key("shift:down, c-left:%(n)d, shift:up"),
+        "(take|grab) word": Key("c-left, sc-right"),
+        "(take|grab) home": release + Key("shift:down, home, shift:up"),
+        "(take|grab) end": release + Key("shift:down, end, shift:up"),
+        "(take|grab) line": release + Key("home, s-end"),
+        "(take|grab) all": release + Key("c-a/3"),
+
+        ### Functional keys ###
+        "act": Key("escape"),
         "space": release + Key("space"),
         "space [<n>]": release + Key("space:%(n)d"),
-        "(enter|slap|slop) [<n>]": release + Key("enter:%(n)d"),
+        "slap [<n>]": release + Key("enter:%(n)d"),
+        "slide [<n>]": release + Key("end, enter:%(n)d"),
         "tab [<n>]": Key("tab:%(n)d"),
-        ###"delete [<n>]": Key("del/3:%(n)d"),
-        "delete [this] line": Key("home, s-end, del"),  # @IgnorePep8
-        "backspace [<n>]": release + Key("backspace:%(n)d"),
-        "application key": release + Key("apps/3"),
-        "win key": release + Key("win/3"),
-        #"paste [that]": Function(paste_command),
-        #"copy [that]": Function(copy_command),
+    
+         ### Deletions ###
+        "scratch [<n>]": release + Key("backspace:%(n)d"),
+        "chuck [<n>]": Key("del/3:%(n)d"),
+        "whack [<n>]": Key("shift:down, c-left/3:%(n)d/10, del, shift:up"),
+        "bump [<n>]": Key("shift:down, c-right/3:%(n)d/10, del, shift:up"),      
+        "scratch [this] line": Key("home, s-end, del"),  # @IgnorePep8
+        "chuck [this] line": Key("home:2, s-end, backspace:2"),
+
+        ### Common functions ###
+        "paste [that]": Key("c-v/3"),
+        "copy [that]": Key("c-c/3"),
         "cut [that]": release + Key("c-x/3"),
-        "select all": release + Key("c-a/3"),
+        "undo": release + Key("c-z/3"),
+        "undo <n> [times]": release + Key("c-z/3:%(n)d"),
+        "redo": release + Key("c-y/3"),
+        "redo <n> [times]": release + Key("c-y/3:%(n)d"),
+        "save": release + Key("c-s"),
+
+        ### Keypresses ###
+        "[(hold|press)] meta": Key("win:down/3"),
+        "release win": Key("win:up"),        
         "[(hold|press)] alt": Key("alt:down/3"),
         "release alt": Key("alt:up"),
         "[(hold|press)] shift": Key("shift:down/3"),
@@ -266,72 +274,45 @@ grammarCfg.cmd.map = Item(
         "release control": Key("ctrl:up"),
         "release [all]": release,
         "press key <pressKey>": Key("%(pressKey)s"),
-        # Closures.
-        "angle brackets": Key("langle, rangle, left/3"),
-        "[square] brackets": Key("lbracket, rbracket, left/3"),
-        "[curly] braces": Key("lbrace, rbrace, left/3"),
-        "(parens|parentheses)": Key("lparen, rparen, left/3"),
+
+        ### Closures ###
+        "angles": Key("langle, rangle, left/3"),
+        "squares": Key("lbracket, rbracket, left/3"),
+        "braces": Key("lbrace, rbrace, left/3"),
+        "parens": Key("lparen, rparen, left/3"),
         "quotes": Key("dquote/3, dquote/3, left/3"),
-        "backticks": Key("backtick:2, left"),
         "single quotes": Key("squote, squote, left/3"),
-        # Shorthand multiple characters.
+        "backticks": Key("backtick:2, left/3"),
+        "pipes": Key("bar:2, left"),
+
+        ### Multiple characters ###
         "double <char>": Text("%(char)s%(char)s"),
         "triple <char>": Text("%(char)s%(char)s%(char)s"),
         "double escape": Key("escape, escape"),  # Exiting menus.
-        # Punctuation and separation characters, for quick editing.
+        
+        ### Punctuation and separation ###
         "colon [<n>]": Key("colon/2:%(n)d"),
-        "semi-colon [<n>]": Key("semicolon/2:%(n)d"),
-        "comma [<n>]": Key("comma/2:%(n)d"),
-        "(dot|period|dit|point)": Key("dot"),  # cannot be followed by a repeat count
-        "(dash|hyphen|minus) [<n>]": Key("hyphen/2:%(n)d"),
-        "underscore [<n>]": Key("underscore/2:%(n)d"),
+        "(semi-colon|semicolon|semi) [<n>]": Key("semicolon/2:%(n)d"),
+        "dit [<n>]": Key("comma/2:%(n)d"),
+        "drip": Key("comma, space"),
+        "drip drop": Key("comma, enter"),
+        "(dot|period) [<n>]": Key("dot/2:%(n)d"),
+        "dash [<n>]": Key("hyphen/2:%(n)d"),
+        "rail [<n>]": Key("underscore/2:%(n)d"),
+
+        ### Letters, Numbers, and Words ###
         "<letters>": Text("%(letters)s"),
         "<char>": Text("%(char)s"),
-
-        'langle [<n>]': Key('langle:%(n)d'),
-        'lace [<n>]':   Key('lbrace:%(n)d'),
-        '(lack|lair) [<n>]':   Key('lbracket:%(n)d'),
-        #'(laip|len) [<n>]':   Key('lparen:%(n)d'),
-        'len [<n>]':    Key('lparen:%(n)d'),
-        'rangle [<n>]': Key('rangle:%(n)d'),
-        'race [<n>]':   Key('rbrace:%(n)d'),
-        '(rack|rare) [<n>]':   Key('rbracket:%(n)d'),
-        #'(raip|ren|wren) [<n>]':   Key('rparen:%(n)d'),
-        '(ren|wren) [<n>]':   Key('rparen:%(n)d'),
-
-        "act [<n>]": Key("escape:%(n)d"),
-        "calm [<n>]": Key("comma:%(n)d"),
-        'into': Key('space,bar,space'),
-        'care':        Key('home'),
-        '(doll|dole)': Key('end'),
-        'chuck [<n>]':       Key('del:%(n)d'),
-        'scratch [<n>]':     Key('backspace:%(n)d'),
-        "visual": Key("v"),
-        "visual line": Key("s-v"),
-        "visual block": Key("c-v"),
-        "doc save": Key("c-s"),
-        "arrow": Text("->"),
-
-        'gope [<n>]':  Key('pgup:%(n)d'),
-        'drop [<n>]':  Key('pgdown:%(n)d'),
-
-        'lope [<n>]':  Key('c-left:%(n)d'),
-        '(yope|rope) [<n>]':  Key('c-right:%(n)d'),
-        '(hill scratch|hatch) [<n>]': Key('c-backspace:%(n)d'),
-
-        'hexadecimal': Text("0x"),
-        'suspend': Key('c-z'),
-
         'word <text>': Function(handle_word),
         'number <num>': Text("%(num)d"),
-        'change <text> to <text2>': Key("home, slash") + Text("%(text)s") + Key("enter, c, e") + Text("%(text2)s") + Key("escape"),
 
+        ### Misc ###
         # Text corrections.
         "(add|fix) missing space": Key("c-left/3, space, c-right/3"),
         "(delete|remove) (double|extra) (space|whitespace)": Key("c-left/3, backspace, c-right/3"),  # @IgnorePep8
         "(delete|remove) (double|extra) (type|char|character)": Key("c-left/3, del, c-right/3"),  # @IgnorePep8
         # Microphone sleep/cancel started dictation.
-        "[<text>] (go to sleep|cancel and sleep) [<text2>]": Function(cancel_and_sleep),  # @IgnorePep8
+        "[<text>] snore [<text2>]": Function(cancel_and_sleep),  # @IgnorePep8
     },
     namespace={
         "Key": Key,

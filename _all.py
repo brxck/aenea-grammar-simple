@@ -5,16 +5,41 @@ from aenea import *
 
 import keyboard
 import words
-import programs
+import desktop
 
 release = Key("shift:up, ctrl:up, alt:up")
 
+# Tags for vocabularies to hook into
+TAGS = ['all', 'all.count']
+aenea.vocabulary.inhibit_global_dynamic_vocabulary('all', TAGS)
+
 alternatives = []
+
+# Add vocabularies
+alternatives.append(
+    DictListRef(
+        'dynamic all',
+        aenea.vocabulary.register_dynamic_vocabulary('all')
+        )
+    )
+
+alternatives.append(
+    DictListRef(
+        'static all',
+        DictList(
+            'static all',
+            aenea.vocabulary.get_static_vocabulary('all')
+            ),
+        )
+    )
+
+
 alternatives.append(RuleRef(rule=keyboard.KeystrokeRule()))
 alternatives.append(RuleRef(rule=words.FormatRule()))
 alternatives.append(RuleRef(rule=words.ReFormatRule()))
 alternatives.append(RuleRef(rule=words.NopeFormatRule()))
-alternatives.append(RuleRef(rule=programs.ProgramsRule()))
+alternatives.append(RuleRef(rule=desktop.DesktopRule()))
+
 root_action = Alternative(alternatives)
 
 sequence = Repetition(root_action, min=1, max=16, name="sequence")
@@ -45,6 +70,12 @@ grammar.load()  # Load the grammar.
 def unload():
     """Unload function which will be called at unload time."""
     global grammar
+    aenea.vocabulary.uninhibit_global_dynamic_vocabulary(
+        'all',
+        TAGS
+        )
+    for tag in TAGS:
+        aenea.vocabulary.unregister_dynamic_vocabulary(tag)
     if grammar:
         grammar.unload()
     grammar = None

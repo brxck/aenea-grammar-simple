@@ -1,0 +1,24 @@
+{
+    "name": "programming",
+    "tags": ["all"],
+    "vocabulary": {
+      "assign": " = ",
+      "divided by": " / ",
+      "exponent": " ** ",
+      "equals": " == ",
+      "greater": " > ",
+      "greater == ": " >= ",      
+      "less": " < ",
+      "less equals": " <= ",
+      "minus": " - ",
+      "minus equals": " -= ",
+      "modulo": " % ",
+      "not equals": " != ",
+      "plus": " + ",
+      "plus equals": " += ",   
+      "times": " * "
+    }
+}
+
+
+
