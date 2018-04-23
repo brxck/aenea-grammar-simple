@@ -38,6 +38,23 @@ from aenea import (
     Text
 )
 
+formatList = {
+    'proper': 'proper',
+    'camel': 'camel',
+    'rel-path': 'rel-path',
+    'abs-path': 'abs-path',
+    'score': 'score',
+    'speak': 'sentence',
+    'scope-resolve': 'scope-resolve',
+    'jumble': 'jumble',
+    'dotword': 'dotword',
+    'dashword': 'dashword',
+    'say': 'natword',
+    'snakeword': 'snakeword',
+    'brooding-narrative': 'brooding-narrative'
+}
+
+formatSpecs = "(%s)" % " | ".join(formatList.keys())
 
 lastFormatRuleLength = 0
 lastFormatRuleWords = []
@@ -50,8 +67,7 @@ class NopeFormatRule(CompoundRule):
         return Key('backspace:' + str(lastFormatRuleLength))
 
 class ReFormatRule(CompoundRule):
-    spec = ('that was [upper | natural] ( proper | camel | rel-path | abs-path | score | sentence | '
-            'scope-resolve | jumble | dotword | dashword | natword | snakeword | brooding-narrative)')
+    spec = ('that was [upper | natural]' + formatSpecs)
 
     def value(self, node):
         global lastFormatRuleWords
@@ -71,7 +87,7 @@ class ReFormatRule(CompoundRule):
         if words[0].lower() in ('upper', 'natural'):
             del words[0]
 
-        function = getattr(aenea.format, 'format_%s' % words[0].lower())
+        function = getattr(aenea.format, 'format_%s' % formatList[words[0].lower()])
         formatted = function(words[1:])
 
         global lastFormatRuleLength
@@ -79,8 +95,7 @@ class ReFormatRule(CompoundRule):
         return Text(formatted)
 
 class FormatRule(CompoundRule):
-    spec = ('[upper | natural] ( proper | camel | rel-path | abs-path | score | sentence | '
-            'scope-resolve | jumble | dotword | dashword | natword | snakeword | brooding-narrative) [<dictation>] [bomb]')
+    spec = '[upper | natural] ' + formatSpecs + ' [<dictation>] [bomb]'
     extras = [Dictation(name='dictation')]
 
     def value(self, node):
@@ -105,8 +120,8 @@ class FormatRule(CompoundRule):
             if bomb_point+1 < len(words):
                 bomb = words[bomb_point+1 : ]
             words = words[ : bomb_point]
-
-        function = getattr(aenea.format, 'format_%s' % words[0].lower())
+            
+        function = getattr(aenea.format, 'format_%s' % formatList[words[0].lower()])
         formatted = function(words[1:])
         global lastFormatRuleWords
         lastFormatRuleWords = words[1:]
