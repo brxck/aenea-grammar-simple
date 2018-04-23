@@ -248,8 +248,10 @@ grammarCfg.cmd.map = Item(
          ### Deletions ###
         "scratch [<n>]": release + Key("backspace:%(n)d"),
         "chuck [<n>]": Key("del/3:%(n)d"),
-        "whack [<n>]": Key("shift:down, c-left/3:%(n)d/10, del, shift:up"),
-        "bump [<n>]": Key("shift:down, c-right/3:%(n)d/10, del, shift:up"),      
+        "whack [<n>]": Key("c-backspace:%(n)d"),
+        "bump [<n>]": Key("c-delete:%(n)d"),    
+        "whack [<n>] this": Key("shift:down, c-left/3:%(n)d/10, del, shift:up"),
+        "bump [<n>] this": Key("shift:down, c-right/3:%(n)d/10, del, shift:up"),      
         "scratch [this] line": Key("home, s-end, del"),  # @IgnorePep8
         "chuck [this] line": Key("home:2, s-end, backspace:2"),
 
