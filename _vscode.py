@@ -4,6 +4,8 @@ from aenea import *
 
 import lib.format
 
+from maps import letterMap
+
 mapping = {
 
     ### Files ###
@@ -65,14 +67,16 @@ mapping = {
 
     ### MetaGo extension ###
     "hyper": Key("a-semicolon"),
+    "hyper <letters>": Key("a-semicolon") + Key("%(letters)s"),
     "(take|grab) hyper": Key("sa-semicolon"),
+    "(take|grab) hyper <letters>": Key("sa-semicolon") + Key("%(letters)s"),
     "cursor focus": Key("a-m"),
     "cursor top": Key("a-t"),
     "cursor bottom": Key("a-b"),
     "block up": Key("a-home"),
     "block down": Key("a-end"),
-    "take block": Key("sa-end"),
-    "grab block": Key("sa-home"),    
+    "take block": Key("sa-home"),
+    "grab block": Key("sa-end"),    
 
     ### Window ###
     "[(show|toggle)] full screen": Key("f11"),
@@ -112,7 +116,8 @@ class CommandRule(MappingRule):
 
     extras = [
         Dictation("text"),
-        IntegerRef("n", 1, 50000)
+        IntegerRef("n", 1, 50000),
+        Choice("letters", letterMap),
     ]
     defaults = {
         "n": 1,
