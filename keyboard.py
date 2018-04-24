@@ -37,6 +37,16 @@ from dragonfly.actions.typeables import typeables
 if 'semicolon' not in typeables:
     typeables["semicolon"] = keyboard.get_typeable(char=';')
 
+from maps import (
+    specialCharMap,
+    modifierMap,
+    singleModifierMap,
+    letterMap,
+    upperLetterMap,
+    numberMap,
+    controlKeyMap,
+    functionKeyMap,
+)
 
 release = Key("shift:up, ctrl:up, alt:up, win:up")
 
@@ -54,139 +64,7 @@ def cancel_and_sleep(text=None, text2=None):
     print("* Dictation canceled. Going to sleep. *")
     setMicState("sleeping")
 
-
-# For repeating of characters.
-specialCharMap = {
-    "(bar|pipe)": "|",
-    "(dash|minus|hyphen)": "-",
-    "(dot|period)": ".",
-    "dit": ",",
-    "backslash": "\\",
-    "rail": "_",
-    "splat": "*",
-    "colon": ":",
-    "semi": ";",
-    "at": "@",
-    "hat": "^",    
-    "[double] quote": '"',
-    "smote": "'",
-    "pound": "#",
-    "cash": "$",
-    "percy": "%",
-    "amp": "&",
-    "slash": "/",
-    "equal": "=",
-    "cross": "+",
-    "bang": "!",
-    "backtick": "`",
-    "tilde": "~",
-    "quest": "?",
-    "left brace": "{",
-    "right brace": "}",
-    "bend": "(",
-    "rend": ")",
-    "ace": "[",
-    "race": "]",
-    "angle": "<",
-    "rangle": ">",
-}
-
-# Modifiers for the press-command.
-modifierMap = {
-    "alt": "a",
-    "control": "c",
-    "shift": "s",
-    "super": "w",
-}
-
-# Modifiers for the press-command, if only the modifier is pressed.
-singleModifierMap = {
-    "alt": "alt",
-    "control": "ctrl",
-    "shift": "shift",
-    "super": "win",
-}
-
-letterMap = {
-    "arch": "a",
-    "brav": "b",
-    "cork": "c",
-    "delta": "d",
-    "echo": "e",
-    "fox": "f",
-    "gang": "g",
-    "hoop": "h",
-    "ice": "i",
-    "juice": "j",
-    "kilo": "k",
-    "lima": "l",
-    "mike": "m",
-    "nike": "n",
-    "osh": "o",
-    "pope": "p",
-    "quack": "q",
-    "rho": "r",
-    "soy": "s",
-    "tau": "t",
-    "uni": "u",
-    "van": "v",
-    "whisk": "w",
-    "rex": "x",
-    "yoke": "y",
-    "zed": "z",
-}
-
-# generate uppercase versions of every letter
-upperLetterMap = {}
-for letter in letterMap:
-    upperLetterMap["(upper|sky) " + letter] = letterMap[letter].upper()
 letterMap.update(upperLetterMap)
-
-numberMap = {
-    "zero": "0",
-    "one": "1",
-    "two": "2",
-    "three": "3",
-    "four": "4",
-    "five": "5",
-    "six": "6",
-    "seven": "7",
-    "eight": "8",
-    "nine": "9",
-}
-
-controlKeyMap = {
-    "left": "left",
-    "right": "right",
-    "up": "up",
-    "down": "down",
-    "page up": "pgup",
-    "page down": "pgdown",
-    "home": "home",
-    "end": "end",
-    "space": "space",
-    "(enter|return)": "enter",
-    "escape": "escape",
-    "tab": "tab",
-    "backspace": "backspace"
-}
-
-# F1 to F12. (do these actually work?)
-functionKeyMap = {
-    'F one': 'f1',
-    'F two': 'f2',
-    'F three': 'f3',
-    'F four': 'f4',
-    'F five': 'f5',
-    'F six': 'f6',
-    'F seven': 'f7',
-    'F eight': 'f8',
-    'F nine': 'f9',
-    'F ten': 'f10',
-    'F eleven': 'f11',
-    'F twelve': 'f12',
-}
-
 pressKeyMap = {}
 pressKeyMap.update(letterMap)
 pressKeyMap.update(numberMap)
@@ -229,8 +107,8 @@ grammarCfg.cmd.map = Item(
         "take <n>": release + Key("shift:down, left:%(n)d, shift:up"),
         "take <n> (line|lines)": release + Key("end, shift:down, home, up:%(n)d, home, shift:up"),
         "grab <n> (line|lines)": release + Key("home, shift:down, down:%(n)d, end, shift:up"),
-        "grab <n> (word|words)": release + Key("shift:down, c-right:%(n)d, shift:up"),
-        "take <n> (word|words)": release + Key("shift:down, c-left:%(n)d, shift:up"),
+        "grab <n> words": release + Key("shift:down, c-right:%(n)d, shift:up"),
+        "take <n> words": release + Key("shift:down, c-left:%(n)d, shift:up"),
         "(take|grab) word": Key("c-left, sc-right"),
         "(take|grab) home": release + Key("shift:down, home, shift:up"),
         "(take|grab) end": release + Key("shift:down, end, shift:up"),
