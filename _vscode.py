@@ -2,8 +2,6 @@
 
 from aenea import *
 
-import lib.format
-
 from maps import letterMap
 
 mapping = {
