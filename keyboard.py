@@ -17,6 +17,7 @@ from aenea import (
     Text,
     Key,
     Mimic,
+    Mouse,
     Function,
     Dictation,
     Choice,
@@ -87,6 +88,11 @@ grammarCfg = Config("multi edit")
 grammarCfg.cmd = Section("Language section")
 grammarCfg.cmd.map = Item(
     {
+        ### Mouse ###
+        "tap": Mouse("left"),
+        "double tap": Mouse("left:2"),
+        "pat": Mouse("right"),
+        
         ### Navigation ###
         "up [<n>]": Key("up:%(n)d"),
         "down [<n>]": Key("down:%(n)d"),
