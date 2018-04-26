@@ -26,7 +26,7 @@ class DesktopRule(MappingRule):
 
         ### Albert ###
         "spot [<text>]": Key("scaw-space/3") + Text("%(text)s"),
-        "spite [<text>]": Key("scaw-space/3") + Text("%(text)s") + Key("enter"),
+        "spike [<text>]": Key("scaw-space/3") + Text("%(text)s") + Key("enter"),
 
         ### Media ###
         "[toggle] mute": Key("volmute"),
