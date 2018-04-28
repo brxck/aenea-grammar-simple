@@ -10,11 +10,19 @@ class DesktopRule(MappingRule):
         "snap left": Key("w-left"),
         "snap right": Key("w-right"),    
         "snap close": Key("c-w"),
+        "snap new": Key("c-n"),        
         "snap quit": Key("c-q"),    
         "snap full": Key("f11"),
         "flip [<n>]": Key("a-escape:%(n)d"),
         "flop [<n>]": Key("sa-escape:%(n)d"),
         "flap [<n>]": Key("a-tab:%(n)d"),
+
+        ### Common controls ###
+        "browse back [<n>]": Key("a-left/15:%(n)d"),
+        "browse forward [<n>]": Key("a-right/15:%(n)d"),
+        "find in page": Key("c-f"),
+        "find previous [<n>]": Key("s-f3/10:%(n)d"),
+        "find next [<n>]": Key("f3/10:%(n)d"),
 
         ### Workspaces ###
         "woke <n>": Key("caw-%(n)d"),

@@ -10,21 +10,17 @@ from aenea import (
 
 
 mapping = {
-   "go back [<n>]": Key("a-left/15:%(n)d"),
-   "go forward [<n>]": Key("a-right/15:%(n)d"),
-   "[open] new window": Key("c-n"),
-   "close window": Key("cs-w"),
-   "undo close window": Key("cs-n"),
-   "[open] new tab": Key("c-t"),
+   "back [<n>]": Key("a-left/15:%(n)d"),
+   "forward [<n>]": Key("a-right/15:%(n)d"),
+   "restore window": Key("cs-n"),
+   "new tab": Key("c-t"),
    "close tab": Key("c-w"),
    "close <n> tabs": Key("c-w/20:%(n)d"),
-   "[go to] next tab [<n>]": Key("c-tab:%(n)d"),
-   "[go to] previous tab [<n>]": Key("cs-tab:%(n)d"),
-   "(restore|undo close) tab": Key("cs-t"),
-   "go to search [bar]": Key("c-k"),
-   "go to address [bar]": Key("a-d"),
-   "go to top": Key("home"),
-   "go to bottom": Key("end"),
+   "nexta [<n>]": Key("c-tab:%(n)d"),
+   "prexta [<n>]": Key("cs-tab:%(n)d"),
+   "restore tab": Key("cs-t"),
+   "search": Key("c-k"),
+   "address": Key("a-d"),
    "copy address": Key("a-d/10, c-c/10"),
    "paste address": Key("a-d/10, c-v/10"),
    "go home": Key("a-home"),
@@ -33,16 +29,15 @@ mapping = {
 
    "bookmark [this] page": Key("c-d"),
 
-   "normal text size": Key("c-0"),
-   "decrease text size [<n>]": Key("c-minus:%(n)d"),
-   "increase text size [<n>]": Key("cs-plus:%(n)d"),
+   "reset zoom": Key("c-0"),
+   "zoom in [<n>]": Key("c-minus:%(n)d"),
+   "zoom out [<n>]": Key("cs-plus:%(n)d"),
 
    "find in page": Key("c-f"),
    "close find": Key("escape"),
    "find previous [<n>]": Key("s-f3/10:%(n)d"),
    "find next [<n>]": Key("f3/10:%(n)d"),
 
-   # "go to tab [<n>]": DynamicAction(Key("c-%(n)d"), Key("a-%(n)d")) # Not supported by Opera.
    "go to tab [<n>]": Key("a-%(n)d") # Not supported by Opera.
 
 }
