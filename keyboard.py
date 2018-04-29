@@ -38,7 +38,7 @@ from dragonfly.actions.typeables import typeables
 if 'semicolon' not in typeables:
     typeables["semicolon"] = keyboard.get_typeable(char=';')
 
-from maps import (
+from lib.maps import (
     specialCharMap,
     modifierMap,
     singleModifierMap,

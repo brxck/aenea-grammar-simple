@@ -2,7 +2,7 @@
 
 from aenea import *
 
-from maps import letterMap
+from lib.maps import letterMap
 
 mapping = {
 
