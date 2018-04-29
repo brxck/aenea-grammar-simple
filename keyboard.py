@@ -49,6 +49,8 @@ from lib.maps import (
     functionKeyMap,
 )
 
+from lib import sound
+
 release = Key("shift:up, ctrl:up, alt:up, win:up")
 
 
@@ -62,6 +64,7 @@ def cancel_and_sleep(text=None, text2=None):
     "'random mumbling go to sleep'" => Microphone sleep.
 
     """
+    sound.play(sound.SND_DEACTIVATE)
     print("* Dictation canceled. Going to sleep. *")
     setMicState("sleeping")
 
