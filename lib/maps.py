@@ -67,7 +67,7 @@ letterMap = {
     "osh": "o",
     "pope": "p",
     "quack": "q",
-    "rope": "r",
+    "ram": "r",
     "soy": "s",
     "tau": "t",
     "yoot": "u",

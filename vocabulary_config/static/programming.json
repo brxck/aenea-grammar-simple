@@ -7,7 +7,7 @@
       "exponent": " ** ",
       "equals": " == ",
       "greater": " > ",
-      "greater == ": " >= ",      
+      "greater equals ": " >= ",      
       "less": " < ",
       "less equals": " <= ",
       "minus": " - ",
@@ -16,7 +16,8 @@
       "not equals": " != ",
       "plus": " + ",
       "plus equals": " += ",   
-      "times": " * "
+      "times": " * ",
+      "arrow": "=>"
     }
 }
 
