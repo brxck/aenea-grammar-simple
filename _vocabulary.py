@@ -25,6 +25,8 @@ import aenea.configuration
 
 import dragonfly
 
+from lib import sound
+
 vocabulary_list = aenea.vocabulary.register_list_of_dynamic_vocabularies()
 
 # Commands that can be rebound.
@@ -60,7 +62,8 @@ class EnableRule(dragonfly.CompoundRule):
 
     def _process_recognition(self, node, extras):
         aenea.vocabulary.enable_dynamic_vocabulary(extras['vocabulary'])
-        print '=== %s vocabulary enabled ===' % extras['vocabulary']
+        print '=== %s vocabulary enabled ==>' % extras['vocabulary']
+        sound.play(sound.SND_ACTIVATE)
 
 
 class DisableRule(dragonfly.CompoundRule):
@@ -69,7 +72,8 @@ class DisableRule(dragonfly.CompoundRule):
 
     def _process_recognition(self, node, extras):
         aenea.vocabulary.disable_dynamic_vocabulary(extras['vocabulary'])
-        print '=== %s vocabulary disabled ===' % extras['vocabulary']
+        print '<== %s vocabulary disabled ===' % extras['vocabulary']
+        sound.play(sound.SND_DEACTIVATE)
 
 
 class StaticRule(dragonfly.CompoundRule):
