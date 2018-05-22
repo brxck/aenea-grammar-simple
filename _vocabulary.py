@@ -31,9 +31,9 @@ vocabulary_list = aenea.vocabulary.register_list_of_dynamic_vocabularies()
 
 # Commands that can be rebound.
 command_table = [
-    '[refresh|reload] dynamic [vocabulary|vocabularies]',
-    'enable <vocabulary> vocabulary',
-    'disable <vocabulary> vocabulary',
+    '[refresh|reload] dynamic [mode|modes]',
+    'enable <vocabulary> mode',
+    'disable <vocabulary> mode',
     '<static>',
     '<dynamic>'
     ]
@@ -44,7 +44,7 @@ command_table = aenea.configuration.make_grammar_commands(
 
 
 class RefreshRule(dragonfly.CompoundRule):
-    spec = '[refresh|reload] dynamic [vocabulary|vocabularies]'
+    spec = '[refresh|reload] dynamic [mode|modes]'
 
     def _process_begin(self):
         # Refresh every time the user starts to say anything. Refresh is
@@ -57,7 +57,7 @@ class RefreshRule(dragonfly.CompoundRule):
 
 
 class EnableRule(dragonfly.CompoundRule):
-    spec = command_table['enable <vocabulary> vocabulary']
+    spec = command_table['enable <vocabulary> mode']
     extras = [dragonfly.ListRef('vocabulary', vocabulary_list)]
 
     def _process_recognition(self, node, extras):
@@ -67,7 +67,7 @@ class EnableRule(dragonfly.CompoundRule):
 
 
 class DisableRule(dragonfly.CompoundRule):
-    spec = command_table['disable <vocabulary> vocabulary']
+    spec = command_table['disable <vocabulary> mode']
     extras = [dragonfly.ListRef('vocabulary', vocabulary_list)]
 
     def _process_recognition(self, node, extras):

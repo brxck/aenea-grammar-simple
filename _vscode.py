@@ -8,9 +8,8 @@ mapping = {
 
     ### Files ###
     "[open] palette": Key("cs-p"),
-    "(open [file] | Go to [tab]) [<text>]": Key("c-p") + Text("%(text)s"),
+    "open [<text>]": Key("c-p") + Text("%(text)s"),
     "open folder": Key("c-k/3, c-o"),
-    "save and close": Key("c-s/10, c-w"),
     "new window": Key("cs-n"),
     "new file": Key("c-n"),
     

@@ -86,6 +86,9 @@ def handle_word(text):
         if len(words) > 1:
             Mimic(' '.join(words[1:])).execute()
 
+def test():
+    sound.play(sound.SND_MESSAGE)
+
 
 grammarCfg = Config("multi edit")
 grammarCfg.cmd = Section("Language section")
@@ -130,7 +133,8 @@ grammarCfg.cmd.map = Item(
         "space [<n>]": release + Key("space:%(n)d"),
         "slap [<n>]": release + Key("enter:%(n)d"),
         "slide [<n>]": release + Key("end, enter:%(n)d"),
-        "tab [<n>]": Key("tab:%(n)d"),
+        "tick [<n>]": Key("tab:%(n)d"),
+        "tock [<n>]": Key("s-tab:%(n)d"),        
     
          ### Deletions ###
         "scratch [<n>]": release + Key("backspace:%(n)d"),
@@ -150,7 +154,7 @@ grammarCfg.cmd.map = Item(
         "undo <n> [times]": release + Key("c-z/3:%(n)d"),
         "redo": release + Key("c-y/3"),
         "redo <n> [times]": release + Key("c-y/3:%(n)d"),
-        "save": release + Key("c-s"),
+        "stamp": release + Key("c-s"),
 
         ### Keypresses ###
         "[(hold|press)] meta": Key("win:down/3"),
@@ -202,6 +206,7 @@ grammarCfg.cmd.map = Item(
         "(delete|remove) (double|extra) (type|char|character)": Key("c-left/3, del, c-right/3"),  # @IgnorePep8
         # Microphone sleep/cancel started dictation.
         "[<text>] snore [<text2>]": Function(cancel_and_sleep),  # @IgnorePep8
+        "check one two": Function(test),
     },
     namespace={
         "Key": Key,

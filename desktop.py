@@ -18,7 +18,7 @@ class DesktopRule(MappingRule):
         "flap [<n>]": Key("a-tab:%(n)d"),
 
         ### Common controls ###
-        "save": Key("c-s"),
+        "stamp": Key("c-s"),
         "browse back [<n>]": Key("a-left/15:%(n)d"),
         "browse forward [<n>]": Key("a-right/15:%(n)d"),
         "find in page": Key("c-f"),
@@ -38,12 +38,12 @@ class DesktopRule(MappingRule):
         "spike [<text>]": Key("scaw-space/3") + Text("%(text)s") + Key("enter"),
 
         ### Media ###
-        # "[toggle] mute": Key("volmute"),
-        # "louder": Key("volup"),
-        # "softer": Key("voldown"),    
-        # "next track": Key("tracknext"),
-        # "last track": Key("trackprev"),
-        # "(play|pause)": Key("playpause"),
+        # "[toggle] mute": Key("w-"),
+        "louder": Key("w-pgup"),
+        "softer": Key("w-pgdown"),    
+        "next track": Key("sw-right"),
+        "last track": Key("sw-left"),
+        "(play|pause) music": Key("sw-up"),
     }
     extras = [
         Dictation("text"),
