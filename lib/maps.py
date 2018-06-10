@@ -6,10 +6,10 @@ specialCharMap = {
     "backslash": "\\",
     "rail": "_",
     "splat": "*",
-    "colon": ":",
+    "cat": ":",
     "semi": ";",
     "abby": "@",
-    "hat": "^",    
+    "hat": "^",
     "[double] quote": '"',
     "smote": "'",
     "pound": "#",
@@ -53,7 +53,7 @@ letterMap = {
     "arch": "a",
     "beer": "b",
     "cork": "c",
-    "delta": "d",
+    "dealt": "d",
     "echo": "e",
     "fox": "f",
     "gang": "g",
@@ -69,12 +69,12 @@ letterMap = {
     "quack": "q",
     "ram": "r",
     "soy": "s",
-    "tau": "t",
-    "yoot": "u",
+    "torque": "t",
+    "uncle": "u",
     "van": "v",
     "whisk": "w",
     "rex": "x",
-    "yoke": "y",
+    "yam": "y",
     "zed": "z",
 }
 
@@ -112,7 +112,7 @@ controlKeyMap = {
     "backspace": "backspace"
 }
 
-# F1 to F12. (do these actually work?) 
+# F1 to F12. (do these actually work?)
 # (no, I don't think so!)
 functionKeyMap = {
     'F one': 'f1',
