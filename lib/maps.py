@@ -69,7 +69,7 @@ letterMap = {
     "quack": "q",
     "ram": "r",
     "soy": "s",
-    "torque": "t",
+    "ted": "t",
     "uncle": "u",
     "van": "v",
     "whisk": "w",
