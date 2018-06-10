@@ -2,16 +2,17 @@
 
 from aenea import *
 
+
 class DesktopRule(MappingRule):
     mapping = {
         ### Windows ###
         "snap screen": Key("w-up"),
         "snap win": Key("w-down"),
         "snap left": Key("w-left"),
-        "snap right": Key("w-right"),    
+        "snap right": Key("w-right"),
         "snap close": Key("c-w"),
-        "snap new": Key("c-n"),        
-        "snap quit": Key("c-q"),    
+        "snap new": Key("c-n"),
+        "snap quit": Key("c-q"),
         "snap full": Key("f11"),
         "flip [<n>]": Key("a-escape:%(n)d"),
         "flop [<n>]": Key("sa-escape:%(n)d"),
@@ -31,7 +32,7 @@ class DesktopRule(MappingRule):
         "wix [<n>]": Key("ca-right:%(n)d"),
         "wox [<n>]": Key("ca-left:%(n)d"),
         "snap wix [<n>]": Key("sca-right:%(n)d"),
-        "snap wox [<n>]": Key("sca-left:%(n)d"), 
+        "snap wox [<n>]": Key("sca-left:%(n)d"),
         "snap woke <n>": Key("scaw-%(n)d"),
 
         ### Albert ###
@@ -40,8 +41,8 @@ class DesktopRule(MappingRule):
 
         ### Media ###
         # "[toggle] mute": Key("w-"),
-        "louder": Key("w-pgup"),
-        "softer": Key("w-pgdown"),    
+        "louder <n>": Key("w-pgup%(n)d"),
+        "softer <n>": Key("w-pgdown:%(n)d"),
         "next track": Key("sw-right"),
         "last track": Key("sw-left"),
         "(play|pause) music": Key("sw-up"),
