@@ -1,63 +1,111 @@
 {
-    "name": "javascript",
-    "tags": ["all"],
-    "vocabulary": {
-        "js and": " && ",
-        "arguments": "arguments",
-        "await": "await ",
-        "break": "break",
-        "case": "case ",
-        "catch": [{"type": "Text", "args": ["catch () {"]}, {"type": "Key", "args": ["left:3"]}],
-        "comment": "// ",
-        "constant": "const ",
-        "continue": "continue",
-        "close comment": " */",
-        "debugger": "debugger",
-        "define": "def",
-        "default": "default",
-        "delete": "delete ",
-        "do loop": "do {",
-        "equals strict": " === ",
-        "else": "else",
-        "else if": [{"type": "Text", "args": ["else if () {"]}, {"type": "Key", "args": ["left:3"]}],
-        "enum": "enum",
-        "eval": [{"type": "Text", "args": ["eval()"]}, {"type": "Key", "args": ["left"]}],
-        "extends ": "extends ",
-        "for loop": [{"type": "Text", "args": ["for () {"]}, {"type": "Key", "args": ["left:3"]}],
-        "false": "false",
-        "finally": [{"type": "Text", "args": ["finally {"]}, {"type": "Key", "args": ["enter"]}],
-        "function": "function ",
-        "if": "if (",
-        "instance of": [{"type": "Text", "args": ["instanceof "]}, {"type": "Key", "args": ["left"]}],
-        "int": "int ",
-        "j query": [{"type": "Text", "args": ["$()"]}, {"type": "Key", "args": ["left"]}],
-        "end line": [{"type": "Key", "args": ["end"]}, {"type": "Text", "args": [";"]}, {"type": "Key", "args": ["enter"]}],
-        "let": "let ",
-        "new": "new ",
-        "not strict equals": " !== ",
-        "null": "null",
-        "open comment": "/* ",
-        "js or": " || ",
-        "object": "Object ",
-        "reg exp": "RegExp",
-        "return": "return",
-        "string": "String",
-        "super": [{"type": "Text", "args": ["super()"]}, {"type": "Key", "args": ["left"]}],
-        "switch": [{"type": "Text", "args": ["switch () {"]}, {"type": "Key", "args": ["left:3"]}],
-        "this": "this",
-        "throw": "throw ",
-        "true": "true",
-        "try": [{"type": "Text", "args": ["try {"]}, {"type": "Key", "args": ["enter"]}],
-        "typeof": "typeof ",
-        "toString": [{"type": "Text", "args": ["toString()"]}, {"type": "Key", "args": ["left"]}],
-        "var": "var ",
-        "variable": "var ",        
-        "while loop": [{"type": "Text", "args": ["while () {"]}, {"type": "Key", "args": ["left:3"]}],
-        "with": [{"type": "Text", "args": ["with () {"]}, {"type": "Key", "args": ["left:3"]}],
-        "yield": "yield",
+  "name": "javascript",
+  "tags": ["all"],
+  "vocabulary": {
+    "true": "true",
+    "false": "false",
 
-        "window": "window",
-        "undefined": "undefined",
-        "JSON": "JSON"
-    }
+    "op and": " && ",
+    "op equals": " === ",
+    "op not": " !== ",
+    "op or": " || ",
+
+    "await": "await ",
+    "async": "async ",
+
+    "try": [
+      { "type": "Text", "args": ["try {"] },
+      { "type": "Key", "args": ["enter"] }
+    ],
+    "catch": [
+      { "type": "Text", "args": [" catch () {"] },
+      { "type": "Key", "args": ["left:3"] }
+    ],
+    "finally": [
+      { "type": "Text", "args": [" finally {"] },
+      { "type": "Key", "args": ["enter"] }
+    ],
+
+    "do loop": [
+      { "type": "Text", "args": ["do {"] },
+      { "type": "Key", "args": ["enter"] }
+    ],
+    "for loop": [
+      { "type": "Text", "args": ["for () {"] },
+      { "type": "Key", "args": ["left:3"] }
+    ],
+    "while loop": [
+      { "type": "Text", "args": ["while () {"] },
+      { "type": "Key", "args": ["left:3"] }
+    ],
+    "with": [
+      { "type": "Text", "args": ["with () {"] },
+      { "type": "Key", "args": ["left:3"] }
+    ],
+    "break": "break",
+    "continue": "continue",
+    "yield": "yield",
+
+    "if": "if (",
+    "else": " else ",
+    "else if": [
+      { "type": "Text", "args": [" else if () {"] },
+      { "type": "Key", "args": ["left:3"] }
+    ],
+    "switch": [
+      { "type": "Text", "args": ["switch () {"] },
+      { "type": "Key", "args": ["left:3"] }
+    ],
+    "case": "case ",
+
+    "open comment": "/* ",
+    "close comment": " */",
+
+    "arguments": "arguments",
+    "const": "const ",
+    "debugger": "debugger",
+    "define": "def ",
+    "delete": "delete ",
+    "enum": "enum",
+    "eval": [
+      { "type": "Text", "args": ["eval()"] },
+      { "type": "Key", "args": ["left"] }
+    ],
+    "extends ": "extends ",
+    "function": "function ",
+    "import": "import ",
+    "instance of": "instanceof ",
+    "int": "int ",
+    "j query": [
+      { "type": "Text", "args": ["$()"] },
+      { "type": "Key", "args": ["left"] }
+    ],
+    "end line": [
+      { "type": "Key", "args": ["end"] },
+      { "type": "Text", "args": [";"] },
+      { "type": "Key", "args": ["enter"] }
+    ],
+    "let": "let ",
+    "new": "new ",
+    "null": "null",
+    "object": "Object",
+    "reg exp": "RegExp",
+    "return": "return ",
+    "string": "String",
+    "super": [
+      { "type": "Text", "args": ["super()"] },
+      { "type": "Key", "args": ["left"] }
+    ],
+    "this": "this",
+    "throw": "throw ",
+    "typeof": "typeof ",
+    "toString": [
+      { "type": "Text", "args": ["toString()"] },
+      { "type": "Key", "args": ["left"] }
+    ],
+    "var": "var ",
+    "window": "window",
+    "undefined": "undefined",
+    "upper JSON": "JSON"
+  }
 }

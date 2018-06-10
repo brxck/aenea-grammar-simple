@@ -19,6 +19,7 @@ class DesktopRule(MappingRule):
 
         ### Common controls ###
         "stamp": Key("c-s"),
+        "find": Key("c-f"),
         "browse back [<n>]": Key("a-left/15:%(n)d"),
         "browse forward [<n>]": Key("a-right/15:%(n)d"),
         "find in page": Key("c-f"),

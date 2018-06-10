@@ -50,7 +50,7 @@ formatList = {
     'dotword': 'dotword',
     'dashword': 'dashword',
     'say': 'natword',
-    'snakeword': 'snakeword',
+    'snake': 'snakeword',
     'brooding-narrative': 'brooding-narrative'
 }
 
@@ -58,6 +58,8 @@ formatSpecs = "(%s)" % " | ".join(formatList.keys())
 
 lastFormatRuleLength = 0
 lastFormatRuleWords = []
+
+
 class NopeFormatRule(CompoundRule):
     spec = ('nope')
 
@@ -65,6 +67,7 @@ class NopeFormatRule(CompoundRule):
         global lastFormatRuleLength
         print "erasing previous format of length", lastFormatRuleLength
         return Key('backspace:' + str(lastFormatRuleLength))
+
 
 class ReFormatRule(CompoundRule):
     spec = ('that was [upper | natural]' + formatSpecs)
@@ -87,12 +90,14 @@ class ReFormatRule(CompoundRule):
         if words[0].lower() in ('upper', 'natural'):
             del words[0]
 
-        function = getattr(aenea.format, 'format_%s' % formatList[words[0].lower()])
+        function = getattr(aenea.format, 'format_%s' %
+                           formatList[words[0].lower()])
         formatted = function(words[1:])
 
         global lastFormatRuleLength
         lastFormatRuleLength = len(formatted)
         return Text(formatted)
+
 
 class FormatRule(CompoundRule):
     spec = '[upper | natural] ' + formatSpecs + ' [<dictation>] [bomb]'
@@ -118,10 +123,11 @@ class FormatRule(CompoundRule):
         if 'bomb' in words:
             bomb_point = words.index('bomb')
             if bomb_point+1 < len(words):
-                bomb = words[bomb_point+1 : ]
-            words = words[ : bomb_point]
-            
-        function = getattr(aenea.format, 'format_%s' % formatList[words[0].lower()])
+                bomb = words[bomb_point+1:]
+            words = words[: bomb_point]
+
+        function = getattr(aenea.format, 'format_%s' %
+                           formatList[words[0].lower()])
         formatted = function(words[1:])
         global lastFormatRuleWords
         lastFormatRuleWords = words[1:]
@@ -135,4 +141,3 @@ class FormatRule(CompoundRule):
             return Text(formatted) + Mimic(' '.join(bomb))
         else:
             return Text(formatted)
-

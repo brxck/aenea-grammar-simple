@@ -68,6 +68,7 @@ def cancel_and_sleep(text=None, text2=None):
     print("* Dictation canceled. Going to sleep. *")
     setMicState("sleeping")
 
+
 letterMap.update(upperLetterMap)
 pressKeyMap = {}
 pressKeyMap.update(letterMap)
@@ -86,6 +87,7 @@ def handle_word(text):
         if len(words) > 1:
             Mimic(' '.join(words[1:])).execute()
 
+
 def test():
     sound.play(sound.SND_MESSAGE)
 
@@ -97,8 +99,8 @@ grammarCfg.cmd.map = Item(
         ### Mouse ###
         "tap": Mouse("left"),
         "double tap": Mouse("left:2"),
-        "pat": Mouse("right"),
-        
+        "rap": Mouse("right"),
+
         ### Navigation ###
         "up [<n>]": Key("up:%(n)d"),
         "down [<n>]": Key("down:%(n)d"),
@@ -134,15 +136,15 @@ grammarCfg.cmd.map = Item(
         "slap [<n>]": release + Key("enter:%(n)d"),
         "slide [<n>]": release + Key("end, enter:%(n)d"),
         "tick [<n>]": Key("tab:%(n)d"),
-        "tock [<n>]": Key("s-tab:%(n)d"),        
-    
-         ### Deletions ###
+        "tock [<n>]": Key("s-tab:%(n)d"),
+
+        ### Deletions ###
         "scratch [<n>]": release + Key("backspace:%(n)d"),
         "chuck [<n>]": Key("del/3:%(n)d"),
         "whack [<n>]": Key("c-backspace:%(n)d"),
-        "bump [<n>]": Key("c-delete:%(n)d"),    
+        "bump [<n>]": Key("c-delete:%(n)d"),
         "whack [<n>] this": Key("shift:down, c-left/3:%(n)d/10, del, shift:up"),
-        "bump [<n>] this": Key("shift:down, c-right/3:%(n)d/10, del, shift:up"),      
+        "bump [<n>] this": Key("shift:down, c-right/3:%(n)d/10, del, shift:up"),
         "scratch [this] line": Key("home, s-end, del"),  # @IgnorePep8
         "chuck [this] line": Key("home:2, s-end, backspace:2"),
 
@@ -158,7 +160,7 @@ grammarCfg.cmd.map = Item(
 
         ### Keypresses ###
         "[(hold|press)] meta": Key("win:down/3"),
-        "release win": Key("win:up"),        
+        "release win": Key("win:up"),
         "[(hold|press)] alt": Key("alt:down/3"),
         "release alt": Key("alt:up"),
         "[(hold|press)] shift": Key("shift:down/3"),
@@ -172,23 +174,25 @@ grammarCfg.cmd.map = Item(
         "angles": Key("langle, rangle, left/3"),
         "squares": Key("lbracket, rbracket, left/3"),
         "braces": Key("lbrace, rbrace, left/3"),
+        "graces": Key("lbrace, space:2, rbrace, left:2/3"),
         "parens": Key("lparen, rparen, left/3"),
         "quotes": Key("dquote/3, dquote/3, left/3"),
-        "single quotes": Key("squote, squote, left/3"),
-        "backticks": Key("backtick:2, left/3"),
+        "smotes": Key("squote, squote, left/3"),
+        "ticks": Key("backtick:2, left/3"),
         "pipes": Key("bar:2, left"),
 
         ### Multiple characters ###
         "double <char>": Text("%(char)s%(char)s"),
         "triple <char>": Text("%(char)s%(char)s%(char)s"),
         "double escape": Key("escape, escape"),  # Exiting menus.
-        
+
         ### Punctuation and separation ###
-        "colon [<n>]": Key("colon/2:%(n)d"),
-        "(semi-colon|semicolon|semi) [<n>]": Key("semicolon/2:%(n)d"),
+        "cat [<n>]": Key("colon/2:%(n)d"),
+        "coy": Key("colon, space"),
+        "semi [<n>]": Key("semicolon/2:%(n)d"),
         "dit [<n>]": Key("comma/2:%(n)d"),
         "drip": Key("comma, space"),
-        "drip drop": Key("comma, enter"),
+        "drip slap": Key("comma, enter"),
         "(dot|period) [<n>]": Key("dot/2:%(n)d"),
         "dash [<n>]": Key("hyphen/2:%(n)d"),
         "rail [<n>]": Key("underscore/2:%(n)d"),
@@ -202,8 +206,10 @@ grammarCfg.cmd.map = Item(
         ### Misc ###
         # Text corrections.
         "(add|fix) missing space": Key("c-left/3, space, c-right/3"),
-        "(delete|remove) (double|extra) (space|whitespace)": Key("c-left/3, backspace, c-right/3"),  # @IgnorePep8
-        "(delete|remove) (double|extra) (type|char|character)": Key("c-left/3, del, c-right/3"),  # @IgnorePep8
+        # @IgnorePep8
+        "(delete|remove) (double|extra) (space|whitespace)": Key("c-left/3, backspace, c-right/3"),
+        # @IgnorePep8
+        "(delete|remove) (double|extra) (type|char|character)": Key("c-left/3, del, c-right/3"),
         # Microphone sleep/cancel started dictation.
         "[<text>] snore [<text2>]": Function(cancel_and_sleep),  # @IgnorePep8
         "check one two": Function(test),
@@ -233,5 +239,3 @@ class KeystrokeRule(MappingRule):
     defaults = {
         "n": 1,
     }
-
-
