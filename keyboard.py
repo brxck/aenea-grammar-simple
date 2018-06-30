@@ -70,11 +70,11 @@ def cancel_and_sleep(text=None, text2=None):
 
 
 letterMap.update(upperLetterMap)
-pressKeyMap = {}
-pressKeyMap.update(letterMap)
-pressKeyMap.update(numberMap)
-pressKeyMap.update(controlKeyMap)
-pressKeyMap.update(functionKeyMap)
+# pressKeyMap = {}
+# pressKeyMap.update(letterMap)
+# pressKeyMap.update(numberMap)
+# pressKeyMap.update(controlKeyMap)
+# pressKeyMap.update(functionKeyMap)
 
 
 def handle_word(text):
@@ -97,20 +97,20 @@ grammarCfg.cmd = Section("Language section")
 grammarCfg.cmd.map = Item(
     {
         ### Mouse ###
-        "tap": Mouse("left"),
-        "double tap": Mouse("left:2"),
-        "rap": Mouse("right"),
+        "quill": Mouse("left"),
+        "doe quill": Mouse("left:2"),
+        "quell": Mouse("right"),
 
         ### Navigation ###
         "up [<n>]": Key("up:%(n)d"),
         "down [<n>]": Key("down:%(n)d"),
-        "left [<n>]": Key("left:%(n)d"),
-        "right [<n>]": Key("right:%(n)d"),
+        "lore [<n>]": Key("left:%(n)d"),
+        "role [<n>]": Key("right:%(n)d"),
         "pinch [<n>]": Key("pgup:%(n)d"),
-        "page [<n>]": Key("pgdown:%(n)d"),
-        "left [<n>] (word|words)": Key("c-left/3:%(n)d/10"),
-        "right [<n>] (word|words)": Key("c-right/3:%(n)d/10"),
-        "home": Key("home"),
+        "punch [<n>]": Key("pgdown:%(n)d"),
+        "lore [<n>] (word|words)": Key("c-left/3:%(n)d/10"),
+        "role [<n>] (word|words)": Key("c-right/3:%(n)d/10"),
+        "plate": Key("home"),
         "lend": Key("end"),
         "lendit": Key("end, comma"),
         "doc home": Key("c-home/3"),
@@ -137,6 +137,21 @@ grammarCfg.cmd.map = Item(
         "slide [<n>]": release + Key("end, enter:%(n)d"),
         "tick [<n>]": Key("tab:%(n)d"),
         "tock [<n>]": Key("s-tab:%(n)d"),
+        "dupe higher": Key("c-c/3, cs-enter, c-v/3, backspace"),
+        "dupe lower": Key("c-c/3, c-enter, c-v/3, backspace"),
+        "code comment": Key("c-slash"),
+        "block comment": Key("sa-a"),
+        "move higher [<n>]": Key("a-up:%(n)d"),
+        "move lower [<n>]": Key("a-down:%(n)d"),
+        "move in [<n>]": Key("c-rbracket:%(n)d"),
+        "move out [<n>]": Key("c-lbracket:%(n)d"),
+        "take [all] others": Key("cs-l"),
+        "take next [<n>]": Key("c-d:%(n)d"),
+        "(take|grab) close": Key("cs-squote"),
+        "peck [<n>] [(line|lines)]": Key("a-pgup:%(n)d"),
+        "peek [<n>] [(line|lines)]": Key("a-pgdown:%(n)d"),
+        "peck [<n>]": Key("a-pgup:%(n)d"),
+        "peek [<n>]": Key("a-pgdown:%(n)d"),
 
         ### Deletions ###
         "scratch [<n>]": release + Key("backspace:%(n)d"),
@@ -159,16 +174,16 @@ grammarCfg.cmd.map = Item(
         "stamp": release + Key("c-s"),
 
         ### Keypresses ###
-        "[(hold|press)] meta": Key("win:down/3"),
-        "release win": Key("win:up"),
-        "[(hold|press)] alt": Key("alt:down/3"),
-        "release alt": Key("alt:up"),
-        "[(hold|press)] shift": Key("shift:down/3"),
-        "release shift": Key("shift:up"),
-        "[(hold|press)] control": Key("ctrl:down/3"),
-        "release control": Key("ctrl:up"),
-        "release [all]": release,
-        "press key <pressKey>": Key("%(pressKey)s"),
+        # "[(hold|press)] meta": Key("win:down/3"),
+        # "release win": Key("win:up"),
+        # "[(hold|press)] alt": Key("alt:down/3"),
+        # "release alt": Key("alt:up"),
+        # "[(hold|press)] shift": Key("shift:down/3"),
+        # "release shift": Key("shift:up"),
+        # "[(hold|press)] control": Key("ctrl:down/3"),
+        # "release control": Key("ctrl:up"),
+        # "release [all]": release,
+        # "press key <pressKey>": Key("%(pressKey)s"),
 
         ### Closures ###
         "angles": Key("langle, rangle, left/3"),
@@ -234,7 +249,7 @@ class KeystrokeRule(MappingRule):
         Choice("modifier1", modifierMap),
         Choice("modifier2", modifierMap),
         Choice("modifierSingle", singleModifierMap),
-        Choice("pressKey", pressKeyMap),
+        # Choice("pressKey", pressKeyMap),
     ]
     defaults = {
         "n": 1,
