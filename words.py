@@ -41,8 +41,8 @@ from aenea import (
 formatList = {
     'proper': 'proper',
     'camel': 'camel',
-    'rel-path': 'rel-path',
-    'abs-path': 'abs-path',
+    'rel path': 'rel-path',
+    'abs path': 'abs-path',
     'score': 'score',
     'speak': 'sentence',
     'scope-resolve': 'scope-resolve',
