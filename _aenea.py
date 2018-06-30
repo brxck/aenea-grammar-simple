@@ -24,8 +24,11 @@ import sys
 
 import dragonfly
 
-# Internal NatLink module for reloading grammars.
-import natlinkmain
+try:
+    # Internal NatLink module for reloading grammars.
+    import natlinkmain
+except ImportError:
+    natlinkmain = None
 
 try:
     import aenea
@@ -59,11 +62,11 @@ command_table = [
     'disable proxy server',
     'enable proxy server',
     'force natlink to reload all grammars'
-    ]
+]
 command_table = aenea.configuration.make_grammar_commands(
     'aenea',
     dict(zip(command_table, command_table))
-    )
+)
 
 
 def topy(path):
@@ -92,8 +95,9 @@ def reload_code():
     dir_reload_blacklist = set(["core"])
     macro_dir = "C:\\NatLink\\NatLink\\MacroSystem"
 
-    # Unload all grammars.
-    natlinkmain.unloadEverything()
+    # Unload all grammars if natlinkmain is available.
+    if natlinkmain:
+        natlinkmain.unloadEverything()
 
     # Unload all modules in macro_dir except for those in directories on the
     # blacklist.
@@ -110,7 +114,7 @@ def reload_code():
             # Do not unimport this module!  This will cause major problems!
             if (path.startswith(macro_dir) and
                 not bool(set(path.split(os.path.sep)) & dir_reload_blacklist)
-                and path != topy(os.path.abspath(__file__))):
+                    and path != topy(os.path.abspath(__file__))):
 
                 print "removing %s from cache" % name
 
@@ -120,8 +124,9 @@ def reload_code():
                 del sys.modules[name]
 
     try:
-        # Reload the top-level modules in macro_dir.
-        natlinkmain.findAndLoadFiles()
+        # Reload the top-level modules in macro_dir if natlinkmain is available.
+        if natlinkmain:
+            natlinkmain.findAndLoadFiles()
     except Exception as e:
         print "reloading failed: {}".format(e)
     else:
@@ -132,7 +137,9 @@ def reload_code():
 # also unloads all modules and packages in the macro directory so that they will
 # be reloaded the next time that they are imported.  It even reloads Aenea!
 class ReloadGrammarsRule(dragonfly.MappingRule):
-    mapping = {command_table['force natlink to reload all grammars']: dragonfly.Function(reload_code)}
+    mapping = {command_table['force natlink to reload all grammars']
+        : dragonfly.Function(reload_code)}
+
 
 server_list = dragonfly.DictList('aenea servers')
 server_list_watcher = aenea.configuration.ConfigWatcher(
@@ -144,13 +151,15 @@ class ChangeServer(dragonfly.CompoundRule):
     extras = [dragonfly.DictListRef('proxy', server_list)]
 
     def _process_recognition(self, node, extras):
-        aenea.communications.set_server_address((extras['proxy']['host'], extras['proxy']['port']))
+        aenea.communications.set_server_address(
+            (extras['proxy']['host'], extras['proxy']['port']))
 
     def _process_begin(self):
         if server_list_watcher.refresh():
             server_list.clear()
             for k, v in server_list_watcher.conf.get('servers', {}).iteritems():
                 server_list[str(k)] = v
+
 
 grammar = dragonfly.Grammar('aenea')
 
