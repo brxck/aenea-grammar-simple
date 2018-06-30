@@ -38,7 +38,7 @@
       { "type": "Text", "args": ["while () {"] },
       { "type": "Key", "args": ["left:3"] }
     ],
-    "with": [
+    "with block": [
       { "type": "Text", "args": ["with () {"] },
       { "type": "Key", "args": ["left:3"] }
     ],
@@ -58,6 +58,10 @@
     ],
     "case": "case ",
 
+    "import": "import ",
+    "export": "export ",
+    "from": " from ",
+
     "open comment": "/* ",
     "close comment": " */",
 
@@ -73,7 +77,6 @@
     ],
     "extends ": "extends ",
     "function": "function ",
-    "import": "import ",
     "instance of": "instanceof ",
     "int": "int ",
     "j query": [
@@ -103,6 +106,7 @@
       { "type": "Text", "args": ["toString()"] },
       { "type": "Key", "args": ["left"] }
     ],
+    "to equal": "toEqual",
     "var": "var ",
     "window": "window",
     "undefined": "undefined",
