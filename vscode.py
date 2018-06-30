@@ -33,7 +33,7 @@ class CodeRule(MappingRule):
         # "find previous <n>"
 
         ### Navigation ###
-        "jump": Key("c-g"),
+        "jump code": Key("c-g"),
         "def": Key("f12"),
         # "nexta"
         # "prexta"
