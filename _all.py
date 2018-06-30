@@ -6,6 +6,8 @@ from aenea import *
 import keyboard
 import words
 import desktop
+import vscode
+import browser
 
 release = Key("shift:up, ctrl:up, alt:up")
 
@@ -20,8 +22,8 @@ alternatives.append(
     DictListRef(
         'dynamic all',
         aenea.vocabulary.register_dynamic_vocabulary('all')
-        )
     )
+)
 
 alternatives.append(
     DictListRef(
@@ -29,9 +31,9 @@ alternatives.append(
         DictList(
             'static all',
             aenea.vocabulary.get_static_vocabulary('all')
-            ),
-        )
+        ),
     )
+)
 
 
 alternatives.append(RuleRef(rule=keyboard.KeystrokeRule()))
@@ -39,10 +41,13 @@ alternatives.append(RuleRef(rule=words.FormatRule()))
 alternatives.append(RuleRef(rule=words.ReFormatRule()))
 alternatives.append(RuleRef(rule=words.NopeFormatRule()))
 alternatives.append(RuleRef(rule=desktop.DesktopRule()))
+alternatives.append(RuleRef(rule=browser.BrowserRule()))
+alternatives.append(RuleRef(rule=vscode.CodeRule()))
 
 root_action = Alternative(alternatives)
 
 sequence = Repetition(root_action, min=1, max=16, name="sequence")
+
 
 class RepeatRule(CompoundRule):
     # Here we define this rule's spoken-form and special elements.
@@ -63,9 +68,11 @@ class RepeatRule(CompoundRule):
                 action.execute()
             release.execute()
 
+
 grammar = Grammar("root rule")
 grammar.add_rule(RepeatRule())  # Add the top-level rule.
 grammar.load()  # Load the grammar.
+
 
 def unload():
     """Unload function which will be called at unload time."""
@@ -73,7 +80,7 @@ def unload():
     aenea.vocabulary.uninhibit_global_dynamic_vocabulary(
         'all',
         TAGS
-        )
+    )
     for tag in TAGS:
         aenea.vocabulary.unregister_dynamic_vocabulary(tag)
     if grammar:
