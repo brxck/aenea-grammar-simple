@@ -27,6 +27,7 @@ class TerminalRule(MappingRule):
         "m k dir": Text("mkdir "),
         "h top": Text("htop"),
         "beats": Text("beets"),
+        "beer me some tunes": Text("ncmpcpp") + Key("enter"),
 
         "git": Text("git"),
         "git status": Text("git status"),

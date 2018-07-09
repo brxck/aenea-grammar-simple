@@ -12,7 +12,6 @@ from aenea import (
 )
 
 mapping = {
-    "beer me some tunes": Text("ncmpcpp") + Key("enter"),
     "list": Key("1"),
     "browse": Key("2"),
     "search": Key("3"),
