@@ -16,27 +16,21 @@ from lib.maps import letterMap
 class CodeRule(MappingRule):
     mapping = {
         ### Files ###
-        "code palette": Key("cs-p"),
-        "code <text>": Key("c-p") + Text("%(text)s"),
+        "coda": Key("cs-p"),
+        "dig <text>": Key("c-p") + Text("%(text)s"),
         "open folder": Key("c-k/3, c-o"),
         "new window": Key("cs-n"),
         "preview": Key("cs-v"),
-        # "open new"
 
         ### Search ###
         "code search": Key("cs-f"),
         "code replace": Key("ca-f"),
         "code replace all": Key("cs-h"),
         "consult docs": Key("c-h"),
-        # "find"
-        # "find next <n>"
-        # "find previous <n>"
 
         ### Navigation ###
         "jump code": Key("c-g"),
         "def": Key("f12"),
-        # "nexta"
-        # "prexta"
 
         ### MetaGo extension ###
         "hyper": Key("a-semicolon"),
@@ -68,13 +62,13 @@ class CodeRule(MappingRule):
         "code extensions": Key("cs-x"),
         "code settings": Key("c-comma"),
         "code split": Key("c-backslash"),
+        "code (term|terminal|one)": Key("a-1"),
         "focus (term|terminal|one)": Key("c-1"),
         "focus two": Key("c-2"),
         "focus three": Key("c-3"),
         "focus four": Key("c-4"),
         "focus right": Key("cs-pagedown"),
         "focus left": Key("cs-pageup"),
-        "[toggle] (term|terminal|one)": Key("a-1"),
         "new (term|terminal)": Key("cs-1"),
         "split (term|terminal)": Key("c-backslash"),
         "code shortcuts": Key("c-k/3, c-s"),

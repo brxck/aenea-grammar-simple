@@ -37,7 +37,7 @@ class DesktopRule(MappingRule):
 
         ### Workspaces ###
         "woke <n>": Key("caw-%(n)d"),
-        "wits [<n>]": Key("ca-right:%(n)d"),
+        "wim [<n>]": Key("ca-right:%(n)d"),
         "wox [<n>]": Key("ca-left:%(n)d"),
         "snap wits [<n>]": Key("sca-right:%(n)d"),
         "snap wox [<n>]": Key("sca-left:%(n)d"),
@@ -58,7 +58,7 @@ class DesktopRule(MappingRule):
 
     extras = [
         Dictation("text"),
-        IntegerRef("n", 1, 100),
+        IntegerRef("n", 1, 10),
     ]
     defaults = {
         "n": 1,

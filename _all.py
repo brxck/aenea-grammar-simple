@@ -8,6 +8,7 @@ import words
 import desktop
 import vscode
 import browser
+import terminal
 
 release = Key("shift:up, ctrl:up, alt:up")
 
@@ -43,6 +44,7 @@ alternatives.append(RuleRef(rule=words.NopeFormatRule()))
 alternatives.append(RuleRef(rule=desktop.DesktopRule()))
 alternatives.append(RuleRef(rule=browser.BrowserRule()))
 alternatives.append(RuleRef(rule=vscode.CodeRule()))
+alternatives.append(RuleRef(rule=terminal.TerminalRule()))
 
 root_action = Alternative(alternatives)
 
