@@ -97,24 +97,33 @@ grammarCfg.cmd = Section("Language section")
 grammarCfg.cmd.map = Item(
     {
         ### Mouse ###
-        "quill": Mouse("left"),
-        "doe quill": Mouse("left:2"),
-        "quell": Mouse("right"),
+        "quiz": Mouse("left"),
+        "quiz it": Mouse("left:2"),
+        "quiz down": Mouse("left:down"),
+        "quiz up": Mouse("left:up"),
+
+        "quill": Mouse("right"),
+        "quill down": Mouse("right:down"),
+        "quill up": Mouse("right:up"),
+
+        "quad": Mouse("middle"),
+        "quad down": Mouse("middle:down"),
+        "quad up": Mouse("middle:up"),
 
         ### Navigation ###
-        "up [<n>]": Key("up:%(n)d"),
-        "down [<n>]": Key("down:%(n)d"),
+        "hop [<n>]": Key("up:%(n)d"),
+        "dove [<n>]": Key("down:%(n)d"),
         "lore [<n>]": Key("left:%(n)d"),
         "role [<n>]": Key("right:%(n)d"),
+        "lorex [<n>]": Key("c-left/3:%(n)d/10"),
+        "rolex [<n>]": Key("c-right/3:%(n)d/10"),
         "pinch [<n>]": Key("pgup:%(n)d"),
         "punch [<n>]": Key("pgdown:%(n)d"),
-        "lore [<n>] (word|words)": Key("c-left/3:%(n)d/10"),
-        "role [<n>] (word|words)": Key("c-right/3:%(n)d/10"),
-        "plate": Key("home"),
+        "stark": Key("home"),
         "lend": Key("end"),
         "lendit": Key("end, comma"),
-        "doc home": Key("c-home/3"),
-        "doc end": Key("c-end/3"),
+        "starkex": Key("c-home/3"),
+        "lendex": Key("c-end/3"),
 
         ### Selections ###
         "grab <n>": release + Key("shift:down, right:%(n)d, shift:up"),
@@ -135,6 +144,7 @@ grammarCfg.cmd.map = Item(
         "space [<n>]": release + Key("space:%(n)d"),
         "slap [<n>]": release + Key("enter:%(n)d"),
         "slide [<n>]": release + Key("end, enter:%(n)d"),
+        "slip [<n>]": release + Key("home, enter:%(n)d, up:%(n)d"),
         "tick [<n>]": Key("tab:%(n)d"),
         "tock [<n>]": Key("s-tab:%(n)d"),
         "dupe higher": Key("c-c/3, cs-enter, c-v/3, backspace"),
@@ -196,21 +206,15 @@ grammarCfg.cmd.map = Item(
         "ticks": Key("backtick:2, left/3"),
         "pipes": Key("bar:2, left"),
 
-        ### Multiple characters ###
-        "double <char>": Text("%(char)s%(char)s"),
-        "triple <char>": Text("%(char)s%(char)s%(char)s"),
-        "double escape": Key("escape, escape"),  # Exiting menus.
-
         ### Punctuation and separation ###
-        "cat [<n>]": Key("colon/2:%(n)d"),
+        "cat [<n>]": Key("colon:%(n)d"),
         "coy": Key("colon, space"),
-        "semi [<n>]": Key("semicolon/2:%(n)d"),
-        "dit [<n>]": Key("comma/2:%(n)d"),
         "drip": Key("comma, space"),
         "drip slap": Key("comma, enter"),
-        "(dot|period) [<n>]": Key("dot/2:%(n)d"),
+        "dot [<n>]": Key("dot/2:%(n)d"),
         "dash [<n>]": Key("hyphen/2:%(n)d"),
-        "rail [<n>]": Key("underscore/2:%(n)d"),
+        "slash [<n>]": Key("slash:%(n)d"),
+        "equit [<n>]": Key("equal:%(n)d"),
 
         ### Letters, Numbers, and Words ###
         "<letters>": Text("%(letters)s"),
@@ -240,8 +244,8 @@ class KeystrokeRule(MappingRule):
     exported = False
     mapping = grammarCfg.cmd.map
     extras = [
-        IntegerRef("n", 1, 25),
-        IntegerRef("num", 0, 1000000),
+        IntegerRef("n", 1, 10),
+        IntegerRef("num", 0, 10000),
         Dictation("text"),
         Dictation("text2"),
         Choice("char", specialCharMap),

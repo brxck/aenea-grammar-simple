@@ -1,25 +1,30 @@
 {
-    "name": "programming",
-    "tags": ["all"],
-    "vocabulary": {
-      "assign": " = ",
-      "divided by": " / ",
-      "exponent": " ** ",
-      "equals": " == ",
-      "great": " > ",
-      "great equals": " >= ",      
-      "less": " < ",
-      "less equals": " <= ",
-      "minus": " - ",
-      "minus equals": " -= ",
-      "modulo": " % ",
-      "not equals": " != ",
-      "plus": " + ",
-      "plus equals": " += ",   
-      "times": " * ",
-      "arrow": " => "
-    }
+  "name": "programming",
+  "tags": ["all"],
+  "vocabulary": {
+    "assign": " = ",
+    "equals": " == ",
+    "not equals": " != ",
+    "lesser": " < ",
+    "greater": " > ",
+    "great equals": " >= ",
+    "less equals": " <= ",
+    "divided by": " / ",
+    "exponent": " ** ",
+    "minus": " - ",
+    "modulo": " % ",
+    "plus": " + ",
+    "divided equals": " /= ",
+    "plus equals": " += ",
+    "minus equals": " -= ",
+    "mod equals": " %= ",
+    "power equals": " **= ",
+    "times equals": " *= ",
+    "times": " * ",
+    "rocket": " => ",
+
+    "op or": " || ",
+    "op and": " && ",
+    "op push": " << "
+  }
 }
-
-
-

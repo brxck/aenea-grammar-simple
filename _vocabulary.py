@@ -34,13 +34,14 @@ command_table = [
     '[refresh|reload] dynamic [mode|modes]',
     'enable <vocabulary> mode',
     'disable <vocabulary> mode',
+    'switch <vocabulary1> for <vocabulary2>',
     '<static>',
     '<dynamic>'
-    ]
+]
 command_table = aenea.configuration.make_grammar_commands(
     'vocabulary',
     dict(zip(command_table, command_table))
-    )
+)
 
 
 class RefreshRule(dragonfly.CompoundRule):
@@ -76,6 +77,19 @@ class DisableRule(dragonfly.CompoundRule):
         sound.play(sound.SND_DEACTIVATE)
 
 
+class SwitchRule(dragonfly.CompoundRule):
+    spec = command_table['switch <vocabulary1> for <vocabulary2>']
+    extras = [dragonfly.ListRef('vocabulary1', vocabulary_list),
+              dragonfly.ListRef('vocabulary2', vocabulary_list)]
+
+    def _process_recognition(self, node, extras):
+        aenea.vocabulary.disable_dynamic_vocabulary(extras['vocabulary1'])
+        aenea.vocabulary.enable_dynamic_vocabulary(extras['vocabulary2'])
+        print '=== %s vocabulary enabled ==>' % extras['vocabulary2']
+        print '<== %s vocabulary disabled ===' % extras['vocabulary1']
+        sound.play(sound.SND_ACTIVATE)
+
+
 class StaticRule(dragonfly.CompoundRule):
     spec = command_table['<static>']
 
@@ -84,8 +98,8 @@ class StaticRule(dragonfly.CompoundRule):
         dragonfly.DictList(
             'static global',
             aenea.vocabulary.get_static_vocabulary('global')
-            )
-        )]
+        )
+    )]
 
     def _process_recognition(self, node, extras):
         extras['static'].execute(extras)
@@ -97,7 +111,7 @@ class DynamicRule(dragonfly.CompoundRule):
     extras = [dragonfly.DictListRef(
         'dynamic',
         aenea.vocabulary.register_global_dynamic_vocabulary()
-        )]
+    )]
 
     def _process_recognition(self, node, extras):
         extras['dynamic'].execute(extras)
@@ -107,6 +121,7 @@ grammar = dragonfly.Grammar('vocabulary')
 grammar.add_rule(RefreshRule())
 grammar.add_rule(EnableRule())
 grammar.add_rule(DisableRule())
+grammar.add_rule(SwitchRule())
 
 grammar.add_rule(DynamicRule())
 grammar.add_rule(StaticRule())

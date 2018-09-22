@@ -71,10 +71,7 @@
     "define": "def ",
     "delete": "delete ",
     "enum": "enum",
-    "eval": [
-      { "type": "Text", "args": ["eval()"] },
-      { "type": "Key", "args": ["left"] }
-    ],
+    "eval": "eval(",
     "extends ": "extends ",
     "function": "function ",
     "instance of": "instanceof ",
@@ -83,29 +80,16 @@
       { "type": "Text", "args": ["$()"] },
       { "type": "Key", "args": ["left"] }
     ],
-    "end line": [
-      { "type": "Key", "args": ["end"] },
-      { "type": "Text", "args": [";"] },
-      { "type": "Key", "args": ["enter"] }
-    ],
     "let": "let ",
     "new": "new ",
     "null": "null",
     "object": "Object",
     "reg exp": "RegExp",
     "return": "return ",
-    "string": "String",
-    "super": [
-      { "type": "Text", "args": ["super()"] },
-      { "type": "Key", "args": ["left"] }
-    ],
+    "super": "super(",
     "this": "this",
     "throw": "throw ",
     "typeof": "typeof ",
-    "toString": [
-      { "type": "Text", "args": ["toString()"] },
-      { "type": "Key", "args": ["left"] }
-    ],
     "to equal": "toEqual",
     "var": "var ",
     "window": "window",

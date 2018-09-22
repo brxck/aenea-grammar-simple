@@ -29,7 +29,6 @@ class TerminalRule(MappingRule):
         "beats": Text("beets"),
         "beer me some tunes": Text("ncmpcpp") + Key("enter"),
 
-        "git": Text("git"),
         "git status": Text("git status"),
         "git add": Text("git add "),
         "git commit": Text('git commit -m ""') + Key("left"),
@@ -50,6 +49,8 @@ class TerminalRule(MappingRule):
         "git branch": Text("git branch"),
         "git branch delete": Text("git branch -d "),
         "git merge": Text("git merge "),
+
+        "R D B schema load": Text("rails db:schema:load")
     }
     extras = []
     defaults = {}

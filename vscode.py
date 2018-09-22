@@ -16,11 +16,14 @@ from lib.maps import letterMap
 class CodeRule(MappingRule):
     mapping = {
         ### Files ###
-        "coda": Key("cs-p"),
-        "dig <text>": Key("c-p") + Text("%(text)s"),
+        "codi [<text>]": Key("cs-p") + Text("%(text)s"),
+        "dig [<text>]": Key("c-p") + Text("%(text)s"),
         "open folder": Key("c-k/3, c-o"),
         "new window": Key("cs-n"),
+        "save new": Key("ca-n"),
         "preview": Key("cs-v"),
+        "close saved tabs": Key("c-k, u"),
+        "close all tabs": Key("c-k, w"),
 
         ### Search ###
         "code search": Key("cs-f"),
@@ -30,20 +33,21 @@ class CodeRule(MappingRule):
 
         ### Navigation ###
         "jump code": Key("c-g"),
-        "def": Key("f12"),
+        "find def": Key("f12"),
+
+        ### Editing ###
+        "code comment": Key("c-slash"),
 
         ### MetaGo extension ###
-        "hyper": Key("a-semicolon"),
-        "hyper <letters>": Key("a-semicolon/5, %(letters)s"),
-        "(take|grab) hyper": Key("sa-semicolon"),
-        "(take|grab) hyper <letters>": Key("sa-semicolon") + Key("%(letters)s"),
+        "hyper [<letters>]": Key("a-semicolon/5, %(letters)s"),
+        "grab hyper [<letters>]": Key("sa-semicolon") + Key("%(letters)s"),
         "focus cursor": Key("a-m"),
         "cursor top": Key("a-t"),
         "cursor bottom": Key("a-b"),
         "block up": Key("a-home"),
         "block down": Key("a-end"),
-        "take block": Key("sa-home"),
-        "grab block": Key("sa-end"),
+        "take block": Key("end, sa-home"),
+        "grab block": Key("home, sa-end"),
 
         ### Subword Navigation extension ###
         # "left [<n>] sub": Key("a-left/3:%(n)d/10"),
@@ -54,13 +58,16 @@ class CodeRule(MappingRule):
         # "bump [<n>] sub": Key("a-delete/3:%(n)d/10"),
 
         ### Window ###
-        "[(show|toggle)] Zen mode": Key("c-k/3, z"),
+        "Zen mode": Key("c-k/3, z"),
         "code bar": Key("c-b"),
         "code files": Key("cs-e"),
+        "code outline": Key("cs-o"),
         "code source": Key("cs-g"),
         "code debug": Key("cs-d"),
         "code extensions": Key("cs-x"),
         "code settings": Key("c-comma"),
+        "code shortcuts": Key("c-k/3, c-s"),
+        "code theme": Key("c-k, c-t"),
         "code split": Key("c-backslash"),
         "code (term|terminal|one)": Key("a-1"),
         "focus (term|terminal|one)": Key("c-1"),
@@ -69,13 +76,19 @@ class CodeRule(MappingRule):
         "focus four": Key("c-4"),
         "focus right": Key("cs-pagedown"),
         "focus left": Key("cs-pageup"),
+        "throw right": Key("cs-pagedown"),
+        "throw left": Key("cs-pageup"),
+
+        ### Terminal ###
+        "right (term|terminal)": Key("a-right"),
+        "left (term|terminal)": Key("a-left"),
+        "nexterm": Key("cs-0"),
+        "prexterm": Key("cs-9"),
         "new (term|terminal)": Key("cs-1"),
         "split (term|terminal)": Key("c-backslash"),
-        "code shortcuts": Key("c-k/3, c-s"),
-        "code theme": Key("c-k, c-t"),
 
         ### Debugging ###
-        "[toggle] breakpoint": Key("f9"),
+        "breakpoint": Key("f9"),
         "step over": Key("f10/50"),
         "step into": Key("f11"),
         "step out [of]": Key("s-f11"),
@@ -85,7 +98,6 @@ class CodeRule(MappingRule):
 
     extras = [
         Dictation("text"),
-        IntegerRef("n", 1, 50),
         Choice("letters", letterMap),
     ]
     defaults = {

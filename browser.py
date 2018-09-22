@@ -4,6 +4,7 @@ from lib.maps import letterMap
 
 from aenea import (
     Key,
+    Text,
     Mouse,
     MappingRule,
     IntegerRef,
@@ -15,6 +16,12 @@ from aenea import (
 
 class BrowserRule(MappingRule):
     mapping = {
+
+        "dot com": Text(".com"),
+        "dot org": Text(".org"),
+        "dot net": Text(".net"),
+        "dot I O": Text(".io"),
+
         "jump tab [<n>]": Key("a-%(n)d"),  # Not supported by Opera.
         "restore window": Key("cs-n"),
         "restore tab": Key("cs-t"),
@@ -33,20 +40,23 @@ class BrowserRule(MappingRule):
         "dev debugger": Key("cs-s"),
         "dev responsive":  Key("cs-m"),
         "dev scratchpad": Key("s-f4"),
+        "dev element": Mouse("right") + Key("q"),
 
-        "dev inspect element": Mouse("right") + Key("q"),
-
-        "reset zoom": Key("c-0"),
+        "dark fox": Key("sa-d"),
 
         # vimium
-        "hyper fox": Key("escape, f"),
-        "hypo fox": Key("escape, s-f"),
+        "jump fox": Key("escape, f"),
+        "leap fox": Key("escape, s-f"),
         "last tab": Key("g, dollar"),
+        "first tab": Key("g, 0"),
+        "down half": Key("d"),
+        "up half": Key("u"),
+        "copy url": Key("y, y"),
+        "omni": Key("o"),
     }
 
     extras = [
-        IntegerRef("n", 1, 10),
-        Choice("letters", letterMap),
+        IntegerRef("n", 1, 10)
     ]
     defaults = {
         "n": 1

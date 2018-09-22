@@ -53,10 +53,10 @@ sequence = Repetition(root_action, min=1, max=16, name="sequence")
 
 class RepeatRule(CompoundRule):
     # Here we define this rule's spoken-form and special elements.
-    spec = "<sequence> [[[and] repeat [that]] <n> times]"
+    spec = "<sequence> [repeat <n>]"
     extras = [
         sequence,  # Sequence of actions defined above.
-        IntegerRef("n", 1, 100),  # Times to repeat the sequence.
+        IntegerRef("n", 1, 16),  # Times to repeat the sequence.
     ]
     defaults = {
         "n": 1,  # Default repeat count.
@@ -68,7 +68,6 @@ class RepeatRule(CompoundRule):
         for i in range(count):  # @UnusedVariable
             for action in sequence:
                 action.execute()
-            release.execute()
 
 
 grammar = Grammar("root rule")
