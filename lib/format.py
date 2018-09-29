@@ -70,7 +70,11 @@ def format_natword(text):
 
 
 def format_sentence(text):
-    return ' '.join([text[0].capitalize()] + text[1:])
+    groups = split_dots(text)
+    for group in groups:
+        group = group[0].capitalize() + group[1:]
+        group = ' '.join(group)
+    return ' '.join(groups)
 
 
 def split_dots(text):
