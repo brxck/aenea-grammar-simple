@@ -42,7 +42,7 @@ class TerminalRule(MappingRule):
         "git clone": Text("git clone "),
         "git create": Text("git create"),
         "git init": Text("git init"),
-        "git remote add": Text("git remote add origin "),
+        "git remote add": Text("git remote add "),
         "git remote list": Text("git remote -v"),
         "git checkout branch": Text("git checkout -b "),
         "git checkout": Text("git checkout "),

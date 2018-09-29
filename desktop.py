@@ -37,6 +37,7 @@ class DesktopRule(MappingRule):
 
         ### Workspaces ###
         "woke <n>": Key("caw-%(n)d"),
+        "woke five": Key("caw-5"),
         "whip [<n>]": Key("ca-right:%(n)d"),
         "wox [<n>]": Key("ca-left:%(n)d"),
         "snap whip [<n>]": Key("sca-right:%(n)d"),
@@ -48,7 +49,7 @@ class DesktopRule(MappingRule):
         "spike [<text>]": Key("scaw-space/10") + Text("%(text)s") + Key("enter"),
 
         ### Launch ###
-        "launch terminal": Key("scaw-e"),
+        "launch (term|terminal)": Key("scaw-e"),
         "launch files": Key("scaw-w"),
         "launch music": Key("scaw-t"),
         "launch browser": Key("scaw-r"),
