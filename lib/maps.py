@@ -75,7 +75,7 @@ letterMap = {
     "walt": "w",
     "rex": "x",
     "yam": "y",
-    "zee": "z",
+    "zebra": "z",
 }
 
 # generate uppercase versions of every letter
