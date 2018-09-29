@@ -67,15 +67,14 @@ def format_dashword(text):
 
 
 def format_natword(text):
-    return ''.join([('' if c in string.punctuation else ' ')+c for c in text])
+    return ''.join([('' if c in string.punctuation else ' ')+c for c in text]).strip()
 
 
 def format_sentence(text):
     groups = split_dots(text)
     for group in groups:
-        group = group[0].capitalize() + group[1:]
-        group = ' '.join(group)
-    return ' '.join(groups)
+        group = ' '.join(group[0].capitalize() + group[1:])
+    return ' '.join(groups).strip()
 
 
 def split_dots(text):
