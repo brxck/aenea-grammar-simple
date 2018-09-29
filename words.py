@@ -12,7 +12,7 @@ import aenea
 import aenea.misc
 import aenea.vocabulary
 import aenea.configuration
-import aenea.format
+import lib.format
 
 from aenea import (
     AeneaContext,
@@ -90,7 +90,7 @@ class ReFormatRule(CompoundRule):
         if words[0].lower() in ('upper', 'natural'):
             del words[0]
 
-        function = getattr(aenea.format, 'format_%s' %
+        function = getattr(lib.format, 'format_%s' %
                            formatList[words[0].lower()])
         formatted = function(words[1:])
 
@@ -127,7 +127,7 @@ class FormatRule(CompoundRule):
                 bomb = words[bomb_point+1:]
             words = words[: bomb_point]
 
-        function = getattr(aenea.format, 'format_%s' %
+        function = getattr(lib.format, 'format_%s' %
                            formatList[words[0].lower()])
         formatted = function(words[1:])
         global lastFormatRuleWords
