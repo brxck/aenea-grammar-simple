@@ -16,6 +16,7 @@
 # Alex Roper <alex@aroper.net>
 
 import string
+import re
 
 
 def format_snakeword(text):
@@ -31,7 +32,7 @@ def format_score(text):
 
 
 def format_camel(text):
-    groups = split_dots(text)
+    groups = split_punct(text)
     formatted = ''
     for group in groups:
         formatted += camelize(group)
@@ -67,20 +68,18 @@ def format_dashword(text):
 
 
 def format_natword(text):
-    return ''.join([('' if c in string.punctuation else ' ')+c for c in text]).strip()
+    formatted = ' '.join(text)
+    return re.sub(r'\s([?.!:"\-]+)\s', r'\1', formatted)
 
 
 def format_sentence(text):
-    groups = split_dots(text)
-    for group in groups:
-        group = ' '.join(group[0].capitalize() + group[1:])
-    return ' '.join(groups).strip()
+    return ' '.join([text[0].capitalize()] + text[1:])
 
 
-def split_dots(text):
-    if '.' in text:
+def split_punct(text):
+    if string.punctuation in text:
         split_point = text.index('.')
-        return [text[:split_point + 1]] + split_dots(text[split_point + 1:])
+        return [text[:split_point + 1]] + split_punct(text[split_point + 1:])
     else:
         return [text]
 
