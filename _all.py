@@ -9,6 +9,7 @@ import desktop
 import vscode
 import browser
 import terminal
+import personal
 
 release = Key("shift:up, ctrl:up, alt:up")
 
@@ -45,6 +46,7 @@ alternatives.append(RuleRef(rule=desktop.DesktopRule()))
 alternatives.append(RuleRef(rule=browser.BrowserRule()))
 alternatives.append(RuleRef(rule=vscode.CodeRule()))
 alternatives.append(RuleRef(rule=terminal.TerminalRule()))
+alternatives.append(RuleRef(rule=personal.PersonalRule()))
 
 root_action = Alternative(alternatives)
 
