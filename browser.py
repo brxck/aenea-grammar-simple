@@ -21,6 +21,8 @@ class BrowserRule(MappingRule):
         "dot org": Text(".org"),
         "dot net": Text(".net"),
         "dot I O": Text(".io"),
+        "H T T P": Text("http://"),
+        "H T T P S": Text("https://"),
 
         "jump tab [<n>]": Key("a-%(n)d"),  # Not supported by Opera.
         "restore window": Key("cs-n"),
