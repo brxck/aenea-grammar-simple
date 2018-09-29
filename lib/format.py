@@ -15,6 +15,8 @@
 # Copyright (2014) Alex Roper
 # Alex Roper <alex@aroper.net>
 
+import string
+
 
 def format_snakeword(text):
     formatted = text[0][0].upper()
@@ -66,7 +68,7 @@ def format_dashword(text):
 
 
 def format_natword(text):
-    return ' '.join(text)
+    return ''.join([('' if c in string.punctuation else ' ')+c for c in text])
 
 
 def format_sentence(text):
