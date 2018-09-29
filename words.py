@@ -13,6 +13,7 @@ import aenea.misc
 import aenea.vocabulary
 import aenea.configuration
 import lib.format
+import re
 
 from aenea import (
     AeneaContext,
@@ -94,9 +95,13 @@ class ReFormatRule(CompoundRule):
                            formatList[words[0].lower()])
         formatted = function(words[1:])
 
-        global lastFormatRuleLength
-        lastFormatRuleLength = len(formatted)
-        return Text(formatted)
+        formatted = re.sub(u"\u2013", "-", formatted)
+
+
+been
+    global lastFormatRuleLength
+    lastFormatRuleLength = len(formatted)
+    return Text(formatted)
 
 
 class FormatRule(CompoundRule):
@@ -135,6 +140,8 @@ class FormatRule(CompoundRule):
 
         global lastFormatRuleLength
         lastFormatRuleLength = len(formatted)
+
+        formatted = re.sub(u"\u2013", "-", formatted)
 
         # empty formatted causes problems here
         print "  ->", formatted
