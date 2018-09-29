@@ -147,19 +147,17 @@ grammarCfg.cmd.map = Item(
         "slip [<n>]": release + Key("home, enter:%(n)d, up:%(n)d"),
         "tim [<n>]": Key("tab:%(n)d"),
         "mitt [<n>]": Key("s-tab:%(n)d"),
-        "dupe higher": Key("c-c/3, cs-enter, c-v/3, backspace"),
-        "dupe lower": Key("c-c/3, c-enter, c-v/3, backspace"),
+        "dupe it": Key("c-c/3, cs-enter, c-v/3, backspace"),
+        "dupe ex": Key("c-c/3, c-enter, c-v/3, backspace"),
         "code comment": Key("c-slash"),
         "block comment": Key("sa-a"),
         "move higher [<n>]": Key("a-up:%(n)d"),
         "move lower [<n>]": Key("a-down:%(n)d"),
         "move in [<n>]": Key("c-rbracket:%(n)d"),
         "move out [<n>]": Key("c-lbracket:%(n)d"),
-        "take [all] others": Key("cs-l"),
+        "take others": Key("cs-l"),
         "take next [<n>]": Key("c-d:%(n)d"),
         "(take|grab) close": Key("cs-squote"),
-        "peck [<n>] [(line|lines)]": Key("a-pgup:%(n)d"),
-        "peek [<n>] [(line|lines)]": Key("a-pgdown:%(n)d"),
         "peck [<n>]": Key("a-pgup:%(n)d"),
         "peek [<n>]": Key("a-pgdown:%(n)d"),
 
@@ -168,19 +166,15 @@ grammarCfg.cmd.map = Item(
         "chuck [<n>]": Key("del/3:%(n)d"),
         "whack [<n>]": Key("c-backspace:%(n)d"),
         "bump [<n>]": Key("c-delete:%(n)d"),
-        "whack [<n>] this": Key("shift:down, c-left/3:%(n)d/10, del, shift:up"),
-        "bump [<n>] this": Key("shift:down, c-right/3:%(n)d/10, del, shift:up"),
-        "scratch [this] line": Key("home, s-end, del"),  # @IgnorePep8
-        "chuck [this] line": Key("home:2, s-end, backspace:2"),
+        "scratch line": Key("home, s-end, del"),  # @IgnorePep8
+        "chuck line": Key("home:2, s-end, backspace:2"),
 
         ### Common functions ###
-        "paste [that]": Key("c-v/3"),
-        "copy [that]": Key("c-c/3"),
-        "cut [that]": release + Key("c-x/3"),
-        "undo": release + Key("c-z/3"),
-        "undo <n> [times]": release + Key("c-z/3:%(n)d"),
-        "redo": release + Key("c-y/3"),
-        "redo <n> [times]": release + Key("c-y/3:%(n)d"),
+        "paste": Key("c-v/3"),
+        "copy": Key("c-c/3"),
+        "cut": release + Key("c-x/3"),
+        "undo [<n>]": release + Key("c-z/3:%(n)d"),
+        "redo [<n>]": release + Key("c-y/3:%(n)d"),
         "stamp": release + Key("c-s"),
 
         ### Keypresses ###
@@ -207,30 +201,30 @@ grammarCfg.cmd.map = Item(
         "pipes": Key("bar:2, left"),
 
         ### Punctuation and separation ###
-        "cat [<n>]": Key("colon:%(n)d"),
         "coy": Key("colon, space"),
         "drip": Key("comma, space"),
-        "drip slap": Key("comma, enter"),
         "dot [<n>]": Key("dot/2:%(n)d"),
         "dash [<n>]": Key("hyphen/2:%(n)d"),
+        "cat [<n>]": Key("colon:%(n)d"),
         "slash [<n>]": Key("slash:%(n)d"),
         "equit [<n>]": Key("equal:%(n)d"),
 
         ### Letters, Numbers, and Words ###
         "<letters>": Text("%(letters)s"),
         "<char>": Text("%(char)s"),
-        'word <text>': Function(handle_word),
-        'number <num>': Text("%(num)d"),
+        # 'word <text>': Function(handle_word),
+        'num <num>': Text("%(num)d"),
 
         ### Misc ###
         # Text corrections.
-        "(add|fix) missing space": Key("c-left/3, space, c-right/3"),
+        # "(add|fix) missing space": Key("c-left/3, space, c-right/3"),
         # @IgnorePep8
-        "(delete|remove) (double|extra) (space|whitespace)": Key("c-left/3, backspace, c-right/3"),
+        # "(delete|remove) (double|extra) (space|whitespace)": Key("c-left/3, backspace, c-right/3"),
         # @IgnorePep8
-        "(delete|remove) (double|extra) (type|char|character)": Key("c-left/3, del, c-right/3"),
+        # "(delete|remove) (double|extra) (type|char|character)": Key("c-left/3, del, c-right/3"),
         # Microphone sleep/cancel started dictation.
-        "[<text>] snore [<text2>]": Function(cancel_and_sleep),  # @IgnorePep8
+        # @IgnorePep8
+        "[<text>] go to sleep [<text2>]": Function(cancel_and_sleep),
         "check one two": Function(test),
     },
     namespace={
