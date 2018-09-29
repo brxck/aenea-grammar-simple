@@ -97,7 +97,7 @@ grammarCfg.cmd = Section("Language section")
 grammarCfg.cmd.map = Item(
     {
         ### Mouse ###
-        "quiz": Mouse("left"),
+        "quiz [<n>]": Mouse("left:%(n)d"),
         "quiz it": Mouse("left:2"),
         "quiz down": Mouse("left:down"),
         "quiz up": Mouse("left:up"),
@@ -122,8 +122,8 @@ grammarCfg.cmd.map = Item(
         "stark": Key("home"),
         "lend": Key("end"),
         "lendit": Key("end, comma"),
-        "starkex": Key("c-home/3"),
-        "lendex": Key("c-end/3"),
+        "dockit": Key("c-home/3"),
+        "dockex": Key("c-end/3"),
 
         ### Selections ###
         "grab <n>": release + Key("shift:down, right:%(n)d, shift:up"),
