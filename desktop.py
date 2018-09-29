@@ -37,7 +37,7 @@ class DesktopRule(MappingRule):
 
         ### Workspaces ###
         "woke <n>": Key("caw-%(n)d"),
-        "woke five": Key("caw-5"),
+        "woke fiver": Key("caw-5"),
         "whip [<n>]": Key("ca-right:%(n)d"),
         "wox [<n>]": Key("ca-left:%(n)d"),
         "snap whip [<n>]": Key("sca-right:%(n)d"),
