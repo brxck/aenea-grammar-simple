@@ -39,19 +39,18 @@ from aenea import (
 )
 
 formatList = {
-    'proper': 'proper',
+    'pascal': 'proper',
     'camel': 'camel',
-    'rel path': 'rel-path',
-    'abs path': 'abs-path',
+    'rel-path': 'relpath',
+    'abs-path': 'abspath',
     'score': 'score',
     'speak': 'sentence',
-    'scope-resolve': 'scope-resolve',
+    'scope-resolve': 'scoperesolve',
     'jumble': 'jumble',
     'dotword': 'dotword',
     'dashword': 'dashword',
     'say': 'natword',
-    'snake': 'snakeword',
-    'brooding-narrative': 'brooding-narrative'
+    'snake': 'snakeword'
 }
 
 formatSpecs = "(%s)" % " | ".join(formatList.keys())
@@ -115,7 +114,8 @@ class FormatRule(CompoundRule):
         if uppercase:
             words = [word.upper() for word in words]
 
-        words = [word.split('\\', 1)[0].replace('-', '') for word in words]
+        words = [word.split('\\', 1)[0].replace(
+            '-', '').replace(' ', '') for word in words]
         if words[0].lower() in ('upper', 'natural'):
             del words[0]
 
