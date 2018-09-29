@@ -16,7 +16,7 @@ from lib.maps import letterMap
 class CodeRule(MappingRule):
     mapping = {
         ### Files ###
-        "codi [<text>]": Key("cs-p") + Text("%(text)s"),
+        "code pallette [<text>]": Key("cs-p") + Text("%(text)s"),
         "dig [<text>]": Key("c-p") + Text("%(text)s"),
         "open folder": Key("c-k/3, c-o"),
         "new window": Key("cs-n"),
@@ -60,7 +60,7 @@ class CodeRule(MappingRule):
         ### Window ###
         "Zen mode": Key("c-k/3, z"),
         "code bar": Key("c-b"),
-        "code files": Key("cs-e"),
+        "code files": Key("cs-j"),
         "code outline": Key("cs-o"),
         "code source": Key("cs-g"),
         "code debug": Key("cs-d"),
