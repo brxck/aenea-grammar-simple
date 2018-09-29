@@ -139,7 +139,7 @@ grammarCfg.cmd.map = Item(
         "(take|grab) all": release + Key("c-a/3"),
 
         ### Functional keys ###
-        "act": Key("escape"),
+        "cape": Key("escape"),
         "space": release + Key("space"),
         "space [<n>]": release + Key("space:%(n)d"),
         "slap [<n>]": release + Key("enter:%(n)d"),
