@@ -128,8 +128,8 @@ grammarCfg.cmd.map = Item(
         ### Selections ###
         "grab <n>": release + Key("shift:down, right:%(n)d, shift:up"),
         "take <n>": release + Key("shift:down, left:%(n)d, shift:up"),
-        "take <n> (line|lines)": release + Key("end, shift:down, home, up:%(n)d, home, shift:up"),
-        "grab <n> (line|lines)": release + Key("home, shift:down, down:%(n)d, end, shift:up"),
+        "take <n> (line|lines)": release + Key("end, shift:down, home, up:%(n)d, shift:up"),
+        "grab <n> (line|lines)": release + Key("home, shift:down, down:%(n)d, shift:up"),
         "grab <n> words": release + Key("shift:down, c-right:%(n)d, shift:up"),
         "take <n> words": release + Key("shift:down, c-left:%(n)d, shift:up"),
         "(take|grab) word": Key("c-left, sc-right"),
