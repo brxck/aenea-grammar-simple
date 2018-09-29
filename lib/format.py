@@ -32,7 +32,6 @@ def format_score(text):
 
 def format_camel(text):
     groups = split_dots(text)
-    print(groups)
     formatted = ''
     for group in groups:
         formatted += camelize(group)
