@@ -37,6 +37,8 @@ class CodeRule(MappingRule):
 
         ### Editing ###
         "code comment": Key("c-slash"),
+        # releasing a key which is not being held down harmlessly does nothing.
+        "kong": Key("a:up/10") + Key("tab"),
 
         ### MetaGo extension ###
         "hyper [<letters>]": Key("a-semicolon/5, %(letters)s"),
