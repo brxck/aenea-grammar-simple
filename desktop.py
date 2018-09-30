@@ -55,6 +55,7 @@ class DesktopRule(MappingRule):
         "launch browser": Key("scaw-r"),
         "launch monitor": Key("scaw-q"),
         "launch code": Key("scaw-d"),
+        "guake": Key("scaw-slash"),
 
         ### Media ###
         # "[toggle] mute": Key("w-"),
