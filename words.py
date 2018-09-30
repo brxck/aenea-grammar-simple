@@ -97,11 +97,9 @@ class ReFormatRule(CompoundRule):
 
         formatted = re.sub(u"\u2013", "-", formatted)
 
-
-been
-    global lastFormatRuleLength
-    lastFormatRuleLength = len(formatted)
-    return Text(formatted)
+        global lastFormatRuleLength
+        lastFormatRuleLength = len(formatted)
+        return Text(formatted)
 
 
 class FormatRule(CompoundRule):
