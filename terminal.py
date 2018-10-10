@@ -34,6 +34,7 @@ class TerminalRule(MappingRule):
         "git commit": Text('git commit -m ""') + Key("left"),
         "git push": Text("git push "),
         "git push origin master": Text("git push origin master"),
+        "git push origin": Text("git push origin "),
         "git push upstream": Text("git push -u "),
         "git pull": Text("git pull"),
         "git log": Text("git log"),
@@ -43,6 +44,7 @@ class TerminalRule(MappingRule):
         "git create": Text("git create"),
         "git init": Text("git init"),
         "git remote add": Text("git remote add "),
+        "git remote remove": Text("git remote remove "),
         "git remote list": Text("git remote -v"),
         "git checkout branch": Text("git checkout -b "),
         "git checkout": Text("git checkout "),
@@ -50,7 +52,9 @@ class TerminalRule(MappingRule):
         "git branch delete": Text("git branch -d "),
         "git merge": Text("git merge "),
 
-        "R D B schema load": Text("rails db:schema:load")
+        "R D B schema load": Text("rails db:schema:load"),
+
+        "four zeros": Text("0.0.0.0")
     }
     extras = []
     defaults = {}
