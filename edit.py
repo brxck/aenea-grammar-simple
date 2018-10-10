@@ -147,19 +147,6 @@ grammarCfg.cmd.map = Item(
         "slip [<n>]": release + Key("home, enter:%(n)d, up:%(n)d"),
         "tim [<n>]": Key("tab:%(n)d"),
         "mitt [<n>]": Key("s-tab:%(n)d"),
-        "dupe it": Key("c-c/3, cs-enter, c-v/3, backspace"),
-        "dupe ex": Key("c-c/3, c-enter, c-v/3, backspace"),
-        "code comment": Key("c-slash"),
-        "block comment": Key("sa-a"),
-        "move higher [<n>]": Key("a-up:%(n)d"),
-        "move lower [<n>]": Key("a-down:%(n)d"),
-        "move in [<n>]": Key("c-rbracket:%(n)d"),
-        "move out [<n>]": Key("c-lbracket:%(n)d"),
-        "take others": Key("cs-l"),
-        "take next [<n>]": Key("c-d:%(n)d"),
-        "(take|grab) close": Key("cs-squote"),
-        "peck [<n>]": Key("a-pgup:%(n)d"),
-        "peek [<n>]": Key("a-pgdown:%(n)d"),
 
         ### Deletions ###
         "scratch [<n>]": release + Key("backspace:%(n)d"),
@@ -212,8 +199,8 @@ grammarCfg.cmd.map = Item(
         ### Letters, Numbers, and Words ###
         "<letters>": Text("%(letters)s"),
         "<char>": Text("%(char)s"),
-        # 'word <text>': Function(handle_word),
         'num <num>': Text("%(num)d"),
+        # 'word <text>': Function(handle_word),
 
         ### Misc ###
         # Text corrections.
@@ -252,9 +239,20 @@ grammarCfg.cmd.map = Item(
         "find def": Key("f12"),
 
         ### Editing ###
+        "block comment": Key("sa-a"),
         "code comment": Key("c-slash"),
-        # releasing a key which is not being held down harmlessly does nothing.
         "kite": Key("a:up/7000") + Key("tab"),
+        "move higher [<n>]": Key("a-up:%(n)d"),
+        "move lower [<n>]": Key("a-down:%(n)d"),
+        "move in [<n>]": Key("c-rbracket:%(n)d"),
+        "move out [<n>]": Key("c-lbracket:%(n)d"),
+        "dupe it": Key("c-c/3, cs-enter, c-v/3, backspace"),
+        "dupe ex": Key("c-c/3, c-enter, c-v/3, backspace"),
+        "take others": Key("cs-l"),
+        "take next [<n>]": Key("c-d:%(n)d"),
+        "(take|grab) close": Key("cs-squote"),
+        "peck [<n>]": Key("a-pgup:%(n)d"),
+        "peek [<n>]": Key("a-pgdown:%(n)d"),
 
         ### MetaGo extension ###
         "hyper [<letters>]": Key("a-semicolon/5, %(letters)s"),

@@ -3,7 +3,7 @@
 from natlink import setMicState
 from aenea import *
 
-import keyboard
+import edit
 import words
 import desktop
 import browser
@@ -37,7 +37,7 @@ alternatives.append(
 )
 
 
-alternatives.append(RuleRef(rule=keyboard.KeystrokeRule()))
+alternatives.append(RuleRef(rule=edit.KeystrokeRule()))
 alternatives.append(RuleRef(rule=words.FormatRule()))
 alternatives.append(RuleRef(rule=words.ReFormatRule()))
 alternatives.append(RuleRef(rule=words.NopeFormatRule()))
