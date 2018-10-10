@@ -1,4 +1,6 @@
 aenea
-notes
+aenea.json
+core/
 _personal.py
 *.pyc
+vocabulary_config/enabled.json
