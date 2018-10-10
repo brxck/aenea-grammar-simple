@@ -6,7 +6,6 @@ from aenea import *
 import keyboard
 import words
 import desktop
-import vscode
 import browser
 import terminal
 import personal
@@ -44,7 +43,6 @@ alternatives.append(RuleRef(rule=words.ReFormatRule()))
 alternatives.append(RuleRef(rule=words.NopeFormatRule()))
 alternatives.append(RuleRef(rule=desktop.DesktopRule()))
 alternatives.append(RuleRef(rule=browser.BrowserRule()))
-alternatives.append(RuleRef(rule=vscode.CodeRule()))
 alternatives.append(RuleRef(rule=terminal.TerminalRule()))
 alternatives.append(RuleRef(rule=personal.PersonalRule()))
 
