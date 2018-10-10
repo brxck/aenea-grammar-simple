@@ -42,9 +42,6 @@
       { "type": "Text", "args": ["with () {"] },
       { "type": "Key", "args": ["left:3"] }
     ],
-    "break": "break",
-    "continue": "continue",
-    "yield": "yield",
 
     "if": "if (",
     "else": " else ",
@@ -52,48 +49,28 @@
       { "type": "Text", "args": [" else if () {"] },
       { "type": "Key", "args": ["left:3"] }
     ],
-    "switch": [
+    "op switch": [
       { "type": "Text", "args": ["switch () {"] },
       { "type": "Key", "args": ["left:3"] }
     ],
-    "case": "case ",
 
     "import": "import ",
     "export": "export ",
     "from": " from ",
+    "extends ": " extends ",
 
     "open comment": "/* ",
     "close comment": " */",
 
-    "arguments": "arguments",
     "const": "const ",
-    "debugger": "debugger",
     "define": "def ",
     "delete": "delete ",
-    "enum": "enum",
-    "eval": "eval(",
-    "extends ": "extends ",
     "function": "function ",
-    "instance of": "instanceof ",
-    "int": "int ",
-    "j query": [
-      { "type": "Text", "args": ["$()"] },
-      { "type": "Key", "args": ["left"] }
-    ],
     "let": "let ",
-    "new": "new ",
     "null": "null",
-    "object": "Object",
     "reg exp": "RegExp",
     "return": "return ",
-    "super": "super(",
     "this": "this",
-    "throw": "throw ",
-    "typeof": "typeof ",
-    "to equal": "toEqual",
-    "var": "var ",
-    "window": "window",
-    "undefined": "undefined",
-    "upper JSON": "JSON"
+    "var": "var "
   }
 }
