@@ -1,6 +1,6 @@
 aenea
 aenea.json
 core/
-_personal.py
+personal.py
 *.pyc
 vocabulary_config/enabled.json
