@@ -40,13 +40,13 @@ if 'semicolon' not in typeables:
 
 from lib.maps import (
     specialCharMap,
-    modifierMap,
-    singleModifierMap,
+    # modifierMap,
+    # singleModifierMap,
     letterMap,
     upperLetterMap,
     numberMap,
-    controlKeyMap,
-    functionKeyMap,
+    # controlKeyMap,
+    # functionKeyMap,
 )
 
 from lib import sound
@@ -322,9 +322,9 @@ class KeystrokeRule(MappingRule):
         Dictation("text2"),
         Choice("char", specialCharMap),
         Choice("letters", letterMap),
-        Choice("modifier1", modifierMap),
-        Choice("modifier2", modifierMap),
-        Choice("modifierSingle", singleModifierMap),
+        # Choice("modifier1", modifierMap),
+        # Choice("modifier2", modifierMap),
+        # Choice("modifierSingle", singleModifierMap),
         # Choice("pressKey", pressKeyMap),
     ]
     defaults = {
