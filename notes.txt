@@ -1,0 +1,9 @@
+Regex for turning grammars into vocabularies.
+
+Find: Text\("([^"]*)"\) \+ Key\("([^"]*)"\),
+Replace: [{"type": "Text", "args": ["$1"]}, {"type": "Key", "args": ["$2"]}],
+
+Find: Text\("([^"]*)"\)
+Replace: "$1"
+
+git daemon --base-path=. --enable=receive-pack --reuseaddr --informative-errors --verbose
