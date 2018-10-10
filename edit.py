@@ -239,6 +239,7 @@ grammarCfg.cmd.map = Item(
         "find def": Key("f12"),
 
         ### Editing ###
+        "jeeves": Key("c-space"),
         "block comment": Key("sa-a"),
         "code comment": Key("c-slash"),
         "kite": Key("a:up/7000") + Key("tab"),
