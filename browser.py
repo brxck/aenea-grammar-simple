@@ -17,10 +17,6 @@ from aenea import (
 class BrowserRule(MappingRule):
     mapping = {
 
-        "dot com": Text(".com"),
-        "dot org": Text(".org"),
-        "dot net": Text(".net"),
-        "dot I O": Text(".io"),
         "H T T P": Text("http://"),
         "H T T P S": Text("https://"),
 
@@ -33,8 +29,8 @@ class BrowserRule(MappingRule):
         "paste address": Key("c-l/10, c-v/10"),
         "go home": Key("a-home"),
         "stop loading": Key("escape"),
-        "reload [page]": Key("f5"),
-        "bookmark [this] page": Key("c-d"),
+        "reload page": Key("f5"),
+        "bookmark page": Key("c-d"),
 
         "dev toolbox": Key("cs-i"),
         "dev console": Key("cs-k"),
