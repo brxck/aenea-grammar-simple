@@ -76,6 +76,10 @@ def format_sentence(text):
     return ' '.join([text[0].capitalize()] + text[1:])
 
 
+def format_title(text):
+    return ' '.join(text).title()
+
+
 def split_dots(text):
     if '.' in text:
         split_point = text.index('.')

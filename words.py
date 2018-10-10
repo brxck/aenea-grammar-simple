@@ -51,7 +51,8 @@ formatList = {
     'dotword': 'dotword',
     'dashword': 'dashword',
     'say': 'natword',
-    'snake': 'snakeword'
+    'snake': 'snakeword',
+    'titlecase': 'title'
 }
 
 formatSpecs = "(%s)" % " | ".join(formatList.keys())
