@@ -32,7 +32,7 @@ def format_score(text):
 
 
 def format_camel(text):
-    groups = split_punct(text)
+    groups = split_dots(text)
     formatted = ''
     for group in groups:
         formatted += camelize(group)
@@ -76,10 +76,10 @@ def format_sentence(text):
     return ' '.join([text[0].capitalize()] + text[1:])
 
 
-def split_punct(text):
-    if string.punctuation in text:
+def split_dots(text):
+    if '.' in text:
         split_point = text.index('.')
-        return [text[:split_point + 1]] + split_punct(text[split_point + 1:])
+        return [text[:split_point + 1]] + split_dots(text[split_point + 1:])
     else:
         return [text]
 
