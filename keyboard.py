@@ -248,7 +248,7 @@ grammarCfg.cmd.map = Item(
         "consult docs": Key("c-h"),
 
         ### Navigation ###
-        "jump <num>": Key("c-g") + Text("%(num)d"),
+        "jump <num>": Key("c-g") + Text("%(num)d") + Key("enter"),
         "find def": Key("f12"),
 
         ### Editing ###
@@ -316,7 +316,7 @@ class KeystrokeRule(MappingRule):
     exported = False
     mapping = grammarCfg.cmd.map
     extras = [
-        IntegerRef("n", 1, 10),
+        IntegerRef("n", 1, 11),
         IntegerRef("num", 0, 10000),
         Dictation("text"),
         Dictation("text2"),
