@@ -145,8 +145,8 @@ grammarCfg.cmd.map = Item(
         "slap [<n>]": release + Key("enter:%(n)d"),
         "slide [<n>]": release + Key("end, enter:%(n)d"),
         "slip [<n>]": release + Key("home, enter:%(n)d, up:%(n)d"),
-        "tim [<n>]": Key("tab:%(n)d"),
-        "mitt [<n>]": Key("s-tab:%(n)d"),
+        "kite [<n>]": Key("tab/10000:%(n)d"),
+        "tyke [<n>]": Key("s-tab:%(n)d"),
 
         ### Deletions ###
         "scratch [<n>]": release + Key("backspace:%(n)d"),
@@ -242,7 +242,6 @@ grammarCfg.cmd.map = Item(
         "jeeves": Key("c-space"),
         "block comment": Key("sa-a"),
         "code comment": Key("c-slash"),
-        "kite": Key("a:up/7000") + Key("tab"),
         "move higher [<n>]": Key("a-up:%(n)d"),
         "move lower [<n>]": Key("a-down:%(n)d"),
         "move in [<n>]": Key("c-rbracket:%(n)d"),
