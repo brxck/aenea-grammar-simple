@@ -90,7 +90,6 @@ grammarCfg.cmd.map = Item(
         "(take|grab) end": Key("shift:down, end, shift:up"),
         "(take|grab) line": Key("home, s-end"),
         "(take|grab) all": Key("c-a/3"),
-        "line cursors": Key("sw-i"),
 
         ### Functional keys ###
         "cape": Key("escape"),
@@ -186,6 +185,7 @@ grammarCfg.cmd.map = Item(
         "(take|grab) close": Key("cs-squote"),
         "peck [<n>]": Key("a-pgup:%(n)d"),
         "peek [<n>]": Key("a-pgdown:%(n)d"),
+        "line cursors": Key("sa-i"),
 
         ### MetaGo extension ###
         "hyper [<letters>]": Key("a-semicolon/5, %(letters)s"),
