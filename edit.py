@@ -45,6 +45,8 @@ def test():
     sound.play(sound.SND_MESSAGE)
 
 
+grammarCfg = Config("multi edit")
+grammarCfg.cmd = Section("Language section")
 grammarCfg.cmd.map = Item(
     {
         ### Mouse ###
