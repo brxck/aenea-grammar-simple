@@ -25,6 +25,19 @@
 
     "op or": " || ",
     "op and": " && ",
-    "op push": " << "
+    "op push": " << ",
+
+    "tagit": [
+      { "type": "Text", "args": ["<>"] },
+      { "type": "Key", "args": ["left"] }
+    ],
+    "tagex": [
+      { "type": "Text", "args": ["</>"] },
+      { "type": "Key", "args": ["left"] }
+    ],
+    "taggle": [
+      { "type": "Text", "args": ["< />"] },
+      { "type": "Key", "args": ["left:3"] }
+    ]
   }
 }
