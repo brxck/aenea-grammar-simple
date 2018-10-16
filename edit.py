@@ -11,27 +11,7 @@
 # Licensed under LGPL
 
 from natlink import setMicState
-from aenea import (
-    Grammar,
-    MappingRule,
-    Text,
-    Key,
-    Mimic,
-    Mouse,
-    Function,
-    Dictation,
-    Choice,
-    Window,
-    Config,
-    Section,
-    Item,
-    IntegerRef,
-    Alternative,
-    RuleRef,
-    Repetition,
-    CompoundRule,
-    AppContext,
-)
+from aenea import *
 
 from lib.maps import (
     specialCharMap,

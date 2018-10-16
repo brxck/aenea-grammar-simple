@@ -2,24 +2,11 @@
 
 from lib.maps import letterMap
 
-from aenea import (
-    Key,
-    Text,
-    Mouse,
-    MappingRule,
-    IntegerRef,
-    Grammar,
-    ProxyAppContext,
-    Choice
-)
+from aenea import *
 
 
 class BrowserRule(MappingRule):
     mapping = {
-
-        "H T T P": Text("http://"),
-        "H T T P S": Text("https://"),
-
         "jump tab [<n>]": Key("a-%(n)d"),  # Not supported by Opera.
         "restore window": Key("cs-n"),
         "restore tab": Key("cs-t"),

@@ -15,29 +15,7 @@ import aenea.configuration
 import lib.format
 import re
 
-from aenea import (
-    AeneaContext,
-    AppContext,
-    Alternative,
-    CompoundRule,
-    Dictation,
-    DictList,
-    DictListRef,
-    Grammar,
-    IntegerRef,
-    Literal,
-    ProxyAppContext,
-    MappingRule,
-    NeverContext,
-    Repetition,
-    RuleRef,
-    Sequence
-)
-
-from aenea import (
-    Key,
-    Text
-)
+from aenea import *
 
 formatList = {
     'pascal': 'proper',

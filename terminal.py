@@ -2,15 +2,7 @@
 
 from lib.maps import letterMap
 
-from aenea import (
-    Key,
-    Text,
-    MappingRule,
-    IntegerRef,
-    Grammar,
-    ProxyAppContext,
-    Choice
-)
+from aenea import *
 
 
 class TerminalRule(MappingRule):

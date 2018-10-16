@@ -1,15 +1,6 @@
 # Controls for ncmpcpp
 
-from aenea import (
-    Key,
-    Dictation,
-    Text,
-    MappingRule,
-    IntegerRef,
-    Grammar,
-    Choice,
-    AppContext
-)
+from aenea import *
 
 mapping = {
     "list": Key("1"),
