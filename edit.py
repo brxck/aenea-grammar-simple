@@ -33,20 +33,11 @@ from aenea import (
     AppContext,
 )
 
-from dragonfly.actions.keyboard import keyboard
-from dragonfly.actions.typeables import typeables
-if 'semicolon' not in typeables:
-    typeables["semicolon"] = keyboard.get_typeable(char=';')
-
 from lib.maps import (
     specialCharMap,
-    # modifierMap,
-    # singleModifierMap,
     letterMap,
     upperLetterMap,
     numberMap,
-    # controlKeyMap,
-    # functionKeyMap,
 )
 
 from lib import sound
@@ -68,30 +59,12 @@ def cancel_and_sleep(text=None, text2=None):
 
 
 letterMap.update(upperLetterMap)
-# pressKeyMap = {}
-# pressKeyMap.update(letterMap)
-# pressKeyMap.update(numberMap)
-# pressKeyMap.update(controlKeyMap)
-# pressKeyMap.update(functionKeyMap)
-
-
-def handle_word(text):
-    #words = map(list, text)
-    #print text
-    words = str(text).split()
-    print 'word (', words, ')'
-    if len(words) > 0:
-        Text(words[0]).execute()
-        if len(words) > 1:
-            Mimic(' '.join(words[1:])).execute()
 
 
 def test():
     sound.play(sound.SND_MESSAGE)
 
 
-grammarCfg = Config("multi edit")
-grammarCfg.cmd = Section("Language section")
 grammarCfg.cmd.map = Item(
     {
         ### Mouse ###
@@ -163,18 +136,6 @@ grammarCfg.cmd.map = Item(
         "redo [<n>]": Key("c-y/3:%(n)d"),
         "stamp": Key("c-s"),
 
-        ### Keypresses ###
-        # "[(hold|press)] meta": Key("win:down/3"),
-        # "release win": Key("win:up"),
-        # "[(hold|press)] alt": Key("alt:down/3"),
-        # "release alt": Key("alt:up"),
-        # "[(hold|press)] shift": Key("shift:down/3"),
-        # "release shift": Key("shift:up"),
-        # "[(hold|press)] control": Key("ctrl:down/3"),
-        # "release control": Key("ctrl:up"),
-        # "release [all]": release,
-        # "press key <pressKey>": Key("%(pressKey)s"),
-
         ### Closures ###
         "angles": Key("langle, rangle, left/3"),
         "squares": Key("lbracket, rbracket, left/3"),
@@ -199,17 +160,8 @@ grammarCfg.cmd.map = Item(
         "<letters>": Text("%(letters)s"),
         "<char>": Text("%(char)s"),
         'num <num>': Text("%(num)d"),
-        # 'word <text>': Function(handle_word),
 
         ### Misc ###
-        # Text corrections.
-        # "(add|fix) missing space": Key("c-left/3, space, c-right/3"),
-        # @IgnorePep8
-        # "(delete|remove) (double|extra) (space|whitespace)": Key("c-left/3, backspace, c-right/3"),
-        # @IgnorePep8
-        # "(delete|remove) (double|extra) (type|char|character)": Key("c-left/3, del, c-right/3"),
-        # Microphone sleep/cancel started dictation.
-        # @IgnorePep8
         "[<text>] go to sleep [<text2>]": Function(cancel_and_sleep),
         "check one two": Function(test),
 
@@ -319,10 +271,6 @@ class KeystrokeRule(MappingRule):
         Dictation("text2"),
         Choice("char", specialCharMap),
         Choice("letters", letterMap),
-        # Choice("modifier1", modifierMap),
-        # Choice("modifier2", modifierMap),
-        # Choice("modifierSingle", singleModifierMap),
-        # Choice("pressKey", pressKeyMap),
     ]
     defaults = {
         "n": 1,
