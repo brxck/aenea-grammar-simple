@@ -28,11 +28,7 @@ mapping = {
 
 class CommandRule(MappingRule):
     mapping = mapping
-
     extras = []
-    defaults = {
-        "n": 1,
-    }
 
 
 context = AppContext(executable="gnome-terminal", title="ncmpcpp")
@@ -41,10 +37,9 @@ grammar = Grammar("ncmpcpp", context=context)
 grammar.add_rule(CommandRule())
 grammar.load()
 
-# Unload function which will be called by natlink at unload time.
-
 
 def unload():
+    # Unload function which will be called by natlink at unload time.
     global grammar
     if grammar:
         grammar.unload()
