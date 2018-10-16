@@ -137,6 +137,7 @@ grammarCfg.cmd.map = Item(
         "(take|grab) end": release + Key("shift:down, end, shift:up"),
         "(take|grab) line": release + Key("home, s-end"),
         "(take|grab) all": release + Key("c-a/3"),
+        "line cursors": release + Key("sw-i"),
 
         ### Functional keys ###
         "cape": Key("escape"),
@@ -153,7 +154,7 @@ grammarCfg.cmd.map = Item(
         "chuck [<n>]": Key("del/3:%(n)d"),
         "whack [<n>]": Key("c-backspace:%(n)d"),
         "bump [<n>]": Key("c-delete:%(n)d"),
-        "scratch line": Key("home, s-end, del"),  # @IgnorePep8
+        "scratch line": Key("home, s-end, del"),
         "chuck line": Key("home:2, s-end, backspace:2"),
 
         ### Common functions ###
