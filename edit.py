@@ -51,8 +51,6 @@ from lib.maps import (
 
 from lib import sound
 
-release = Key("shift:up, ctrl:up, alt:up, win:up")
-
 
 def cancel_and_sleep(text=None, text2=None):
     """Used to cancel an ongoing dictation and puts microphone to sleep.
@@ -126,31 +124,31 @@ grammarCfg.cmd.map = Item(
         "dockex": Key("c-end/3"),
 
         ### Selections ###
-        "grab <n>": release + Key("shift:down, right:%(n)d, shift:up"),
-        "take <n>": release + Key("shift:down, left:%(n)d, shift:up"),
-        "take <n> (line|lines)": release + Key("end, shift:down, home, up:%(n)d, shift:up"),
-        "grab <n> (line|lines)": release + Key("home, shift:down, down:%(n)d, shift:up"),
-        "grab <n> words": release + Key("shift:down, c-right:%(n)d, shift:up"),
-        "take <n> words": release + Key("shift:down, c-left:%(n)d, shift:up"),
+        "grab <n>": Key("shift:down, right:%(n)d, shift:up"),
+        "take <n>": Key("shift:down, left:%(n)d, shift:up"),
+        "take <n> (line|lines)": Key("end, shift:down, home, up:%(n)d, shift:up"),
+        "grab <n> (line|lines)": Key("home, shift:down, down:%(n)d, shift:up"),
+        "grab <n> words": Key("shift:down, c-right:%(n)d, shift:up"),
+        "take <n> words": Key("shift:down, c-left:%(n)d, shift:up"),
         "(take|grab) word": Key("c-left, sc-right"),
-        "(take|grab) home": release + Key("shift:down, home, shift:up"),
-        "(take|grab) end": release + Key("shift:down, end, shift:up"),
-        "(take|grab) line": release + Key("home, s-end"),
-        "(take|grab) all": release + Key("c-a/3"),
-        "line cursors": release + Key("sw-i"),
+        "(take|grab) home": Key("shift:down, home, shift:up"),
+        "(take|grab) end": Key("shift:down, end, shift:up"),
+        "(take|grab) line": Key("home, s-end"),
+        "(take|grab) all": Key("c-a/3"),
+        "line cursors": Key("sw-i"),
 
         ### Functional keys ###
         "cape": Key("escape"),
-        "space": release + Key("space"),
-        "space [<n>]": release + Key("space:%(n)d"),
-        "slap [<n>]": release + Key("enter:%(n)d"),
-        "slide [<n>]": release + Key("end, enter:%(n)d"),
-        "slip [<n>]": release + Key("home, enter:%(n)d, up:%(n)d"),
+        "space": Key("space"),
+        "space [<n>]": Key("space:%(n)d"),
+        "slap [<n>]": Key("enter:%(n)d"),
+        "slide [<n>]": Key("end, enter:%(n)d"),
+        "slip [<n>]": Key("home, enter:%(n)d, up:%(n)d"),
         "kite [<n>]": Key("tab/10000:%(n)d"),
         "tyke [<n>]": Key("s-tab:%(n)d"),
 
         ### Deletions ###
-        "scratch [<n>]": release + Key("backspace:%(n)d"),
+        "scratch [<n>]": Key("backspace:%(n)d"),
         "chuck [<n>]": Key("del/3:%(n)d"),
         "whack [<n>]": Key("c-backspace:%(n)d"),
         "bump [<n>]": Key("c-delete:%(n)d"),
@@ -160,10 +158,10 @@ grammarCfg.cmd.map = Item(
         ### Common functions ###
         "paste": Key("c-v/3"),
         "copy": Key("c-c/3"),
-        "cut": release + Key("c-x/3"),
-        "undo [<n>]": release + Key("c-z/3:%(n)d"),
-        "redo [<n>]": release + Key("c-y/3:%(n)d"),
-        "stamp": release + Key("c-s"),
+        "cut": Key("c-x/3"),
+        "undo [<n>]": Key("c-z/3:%(n)d"),
+        "redo [<n>]": Key("c-y/3:%(n)d"),
+        "stamp": Key("c-s"),
 
         ### Keypresses ###
         # "[(hold|press)] meta": Key("win:down/3"),
