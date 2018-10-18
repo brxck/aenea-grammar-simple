@@ -96,7 +96,7 @@ grammarCfg.cmd.map = Item(
         "slap [<n>]": Key("enter:%(n)d"),
         "slide [<n>]": Key("end, enter:%(n)d"),
         "slip [<n>]": Key("home, enter:%(n)d, up:%(n)d"),
-        "kite [<n>]": Key("control/10000, tabthis:%(n)d"),
+        "kite [<n>]": Key("control/10000, tab:%(n)d"),
         "tyke [<n>]": Key("s-tab:%(n)d"),
 
         ### Deletions ###
