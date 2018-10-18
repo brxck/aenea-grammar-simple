@@ -63,7 +63,7 @@ letterMap = {
     "kilo": "k",
     "luck": "l",
     "mike": "m",
-    "nike": "n",
+    "nikey": "n",
     "awsh": "o",
     "poke": "p",
     "quack": "q",
@@ -71,11 +71,11 @@ letterMap = {
     "soy": "s",
     "ted": "t",
     "uncle": "u",
-    "van": "v",
+    "vant": "v",
     "walt": "w",
     "rex": "x",
     "yam": "y",
-    "zebra": "z",
+    "zap": "z",
 }
 
 # generate uppercase versions of every letter
