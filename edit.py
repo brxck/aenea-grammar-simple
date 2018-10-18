@@ -54,11 +54,9 @@ grammarCfg.cmd.map = Item(
         "quiz it": Mouse("left:2"),
         "quiz down": Mouse("left:down"),
         "quiz up": Mouse("left:up"),
-
         "quill": Mouse("right"),
         "quill down": Mouse("right:down"),
         "quill up": Mouse("right:up"),
-
         "quad": Mouse("middle"),
         "quad down": Mouse("middle:down"),
         "quad up": Mouse("middle:up"),
@@ -98,7 +96,7 @@ grammarCfg.cmd.map = Item(
         "slap [<n>]": Key("enter:%(n)d"),
         "slide [<n>]": Key("end, enter:%(n)d"),
         "slip [<n>]": Key("home, enter:%(n)d, up:%(n)d"),
-        "kite [<n>]": Key("tab/10000:%(n)d"),
+        "kite [<n>]": Key("control/10000, tabthis:%(n)d"),
         "tyke [<n>]": Key("s-tab:%(n)d"),
 
         ### Deletions ###
@@ -131,8 +129,9 @@ grammarCfg.cmd.map = Item(
         ### Punctuation and separation ###
         "coy": Key("colon, space"),
         "drip": Key("comma, space"),
-        "dot [<n>]": Key("dot/2:%(n)d"),
-        "dash [<n>]": Key("hyphen/2:%(n)d"),
+        "drip slap": Key("comma, enter"),
+        "dot [<n>]": Key("dot:%(n)d"),
+        "dash [<n>]": Key("hyphen:%(n)d"),
         "cat [<n>]": Key("colon:%(n)d"),
         "slash [<n>]": Key("slash:%(n)d"),
         "equit [<n>]": Key("equal:%(n)d"),
@@ -140,7 +139,7 @@ grammarCfg.cmd.map = Item(
         ### Letters, Numbers, and Words ###
         "<letters>": Text("%(letters)s"),
         "<char>": Text("%(char)s"),
-        'num <num>': Text("%(num)d"),
+        "num <num>": Text("%(num)d"),
 
         ### Misc ###
         "[<text>] go to sleep [<text2>]": Function(cancel_and_sleep),
@@ -151,14 +150,16 @@ grammarCfg.cmd.map = Item(
         ##########################
 
         ### Files ###
-        "code pallette [<text>]": Key("cs-p") + Text("%(text)s"),
+        "code command [<text>]": Key("cs-p") + Text("%(text)s"),
         "dig [<text>]": Key("c-p") + Text("%(text)s"),
         "open folder": Key("c-k/3, c-o"),
         "new window": Key("cs-n"),
         "save new": Key("ca-n"),
-        "preview": Key("cs-v"),
+        "save plain": Key("c-k, s"),
+        "code preview": Key("cs-v"),
         "close saved tabs": Key("c-k, u"),
         "close all tabs": Key("c-k, w"),
+        "code commit": Key("c-enter"),
 
         ### Search ###
         "code search": Key("cs-f"),
@@ -168,24 +169,26 @@ grammarCfg.cmd.map = Item(
 
         ### Navigation ###
         "jump <num>": Key("c-g") + Text("%(num)d") + Key("enter"),
-        "find def": Key("f12"),
+        "code def": Key("f12"),
+        "code peek": Key("cs-f10"),
 
         ### Editing ###
-        "jeeves": Key("c-space"),
+        "intel": Key("c-space"),
         "block comment": Key("sa-a"),
         "code comment": Key("c-slash"),
-        "move higher [<n>]": Key("a-up:%(n)d"),
-        "move lower [<n>]": Key("a-down:%(n)d"),
-        "move in [<n>]": Key("c-rbracket:%(n)d"),
-        "move out [<n>]": Key("c-lbracket:%(n)d"),
-        "dupe it": Key("c-c/3, cs-enter, c-v/3, backspace"),
-        "dupe ex": Key("c-c/3, c-enter, c-v/3, backspace"),
+        "moovit [<n>]": Key("a-up:%(n)d"),
+        "moovex [<n>]": Key("a-down:%(n)d"),
+        "shiftit [<n>]": Key("c-rbracket:%(n)d"),
+        "shiftex [<n>]": Key("c-lbracket:%(n)d"),
+        "doopit": Key("c-c/3, cs-enter, c-v/3, backspace"),
+        "doopex": Key("c-c/3, c-enter, c-v/3, backspace"),
         "take others": Key("cs-l"),
         "take next [<n>]": Key("c-d:%(n)d"),
         "(take|grab) close": Key("cs-squote"),
         "peck [<n>]": Key("a-pgup:%(n)d"),
         "peek [<n>]": Key("a-pgdown:%(n)d"),
         "line cursors": Key("sa-i"),
+        "code last edit": Key("c-k, c-q"),
 
         ### MetaGo extension ###
         "hyper [<letters>]": Key("a-semicolon/5, %(letters)s"),
@@ -199,7 +202,8 @@ grammarCfg.cmd.map = Item(
         "grab block": Key("home, sa-end"),
 
         ### Window ###
-        "Zen mode": Key("c-k/3, z"),
+        "code zen": Key("c-k/3, z"),
+        "code center": Key("c-k/3, c-l"),
         "code bar": Key("c-b"),
         "code files": Key("cs-j"),
         "code outline": Key("cs-o"),
@@ -210,6 +214,7 @@ grammarCfg.cmd.map = Item(
         "code shortcuts": Key("c-k/3, c-s"),
         "code theme": Key("c-k, c-t"),
         "code split": Key("c-backslash"),
+        "code wrap": Key("a-z"),
         "code (term|terminal|one)": Key("a-1"),
         "focus (term|terminal|one)": Key("c-1"),
         "focus two": Key("c-2"),
@@ -232,8 +237,8 @@ grammarCfg.cmd.map = Item(
         "breakpoint": Key("f9"),
         "step over": Key("f10/50"),
         "step into": Key("f11"),
-        "step out [of]": Key("s-f11"),
-        "resume": Key("f5"),
+        "step out": Key("s-f11"),
+        "resume debug": Key("f5"),
 
     },
     namespace={
