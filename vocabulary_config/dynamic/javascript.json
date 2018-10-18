@@ -56,6 +56,7 @@
 
     "import": "import ",
     "export": "export ",
+    "export default": "export default ",
     "from": " from ",
     "extends ": " extends ",
 
@@ -64,7 +65,6 @@
 
     "const": "const ",
     "define": "def ",
-    "delete": "delete ",
     "function": "function ",
     "let": "let ",
     "null": "null",
