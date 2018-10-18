@@ -75,6 +75,7 @@ grammarCfg.cmd.map = Item(
         "lendit": Key("end, comma"),
         "dockit": Key("c-home/3"),
         "dockex": Key("c-end/3"),
+        "cape": Key("escape"),
 
         ### Selections ###
         "grab <n>": Key("shift:down, right:%(n)d, shift:up"),
@@ -89,14 +90,13 @@ grammarCfg.cmd.map = Item(
         "(take|grab) line": Key("home, s-end"),
         "(take|grab) all": Key("c-a/3"),
 
-        ### Functional keys ###
-        "cape": Key("escape"),
+        ### Whitespace ###
         "space": Key("space"),
         "space [<n>]": Key("space:%(n)d"),
         "slap [<n>]": Key("enter:%(n)d"),
         "slide [<n>]": Key("end, enter:%(n)d"),
         "slip [<n>]": Key("home, enter:%(n)d, up:%(n)d"),
-        "kite [<n>]": Key("control/10000, tab:%(n)d"),
+        "kite [<n>]": Key("tab:%(n)d"),
         "tyke [<n>]": Key("s-tab:%(n)d"),
 
         ### Deletions ###
@@ -107,7 +107,7 @@ grammarCfg.cmd.map = Item(
         "scratch line": Key("home, s-end, del"),
         "chuck line": Key("home:2, s-end, backspace:2"),
 
-        ### Common functions ###
+        ### Functions ###
         "paste": Key("c-v/3"),
         "copy": Key("c-c/3"),
         "cut": Key("c-x/3"),
@@ -126,7 +126,7 @@ grammarCfg.cmd.map = Item(
         "ticks": Key("backtick:2, left/3"),
         "pipes": Key("bar:2, left"),
 
-        ### Punctuation and separation ###
+        ### Punctuation ###
         "coy": Key("colon, space"),
         "drip": Key("comma, space"),
         "drip slap": Key("comma, enter"),
@@ -136,7 +136,7 @@ grammarCfg.cmd.map = Item(
         "slash [<n>]": Key("slash:%(n)d"),
         "equit [<n>]": Key("equal:%(n)d"),
 
-        ### Letters, Numbers, and Words ###
+        ### Maps ###
         "<letters>": Text("%(letters)s"),
         "<char>": Text("%(char)s"),
         "num <num>": Text("%(num)d"),
