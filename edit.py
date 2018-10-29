@@ -67,10 +67,10 @@ grammarCfg.cmd.map = Item(
         "quad up": Mouse("middle:up"),
 
         ### Navigation ###
-        "hop [<n>]": Key("up:%(n)d"),
-        "dove [<n>]": Key("down:%(n)d"),
-        "lore [<n>]": Key("left:%(n)d"),
-        "role [<n>]": Key("right:%(n)d"),
+        "hop [<nav>]": Key("up:%(nav)d"),
+        "dove [<nav>]": Key("down:%(nav)d"),
+        "lore [<nav>]": Key("left:%(nav)d"),
+        "role [<nav>]": Key("right:%(nav)d"),
         "lorex [<n>]": Key("c-left:%(n)d"),
         "rolex [<n>]": Key("c-right:%(n)d"),
         "pinch [<n>]": Key("pgup:%(n)d"),
@@ -258,6 +258,7 @@ class KeystrokeRule(MappingRule):
     mapping = grammarCfg.cmd.map
     extras = [
         IntegerRef("n", 1, 11),
+        IntegerRef("nav", 1, 40),
         IntegerRef("num", 0, 10000),
         Dictation("text"),
         Dictation("text2"),
