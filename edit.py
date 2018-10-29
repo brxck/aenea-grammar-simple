@@ -10,6 +10,7 @@
 #
 # Licensed under LGPL
 
+import time
 from natlink import setMicState
 from aenea import *
 
@@ -21,6 +22,10 @@ from lib.maps import (
 )
 
 from lib import sound
+
+
+def pause():
+    time.sleep(1)
 
 
 def cancel_and_sleep(text=None, text2=None):
@@ -96,7 +101,7 @@ grammarCfg.cmd.map = Item(
         "slap [<n>]": Key("enter:%(n)d"),
         "slide [<n>]": Key("end, enter:%(n)d"),
         "slip [<n>]": Key("home, enter:%(n)d, up:%(n)d"),
-        "kite [<n>]": Key("ctrl/1000, tab:%(n)d"),
+        "kite [<n>]": Function(pause) + Key("tab:%(n)d"),
         "tyke [<n>]": Key("s-tab:%(n)d"),
 
         ### Deletions ###
