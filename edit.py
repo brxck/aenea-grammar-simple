@@ -101,7 +101,7 @@ grammarCfg.cmd.map = Item(
         "slap [<n>]": Key("enter:%(n)d"),
         "slide [<n>]": Key("end, enter:%(n)d"),
         "slip [<n>]": Key("home, enter:%(n)d, up:%(n)d"),
-        "kite [<n>]": Function(pause) + Key("tab:%(n)d"),
+        "kite [<n>]": Key("tab:%(n)d"),
         "tyke [<n>]": Key("s-tab:%(n)d"),
 
         ### Deletions ###
@@ -140,6 +140,7 @@ grammarCfg.cmd.map = Item(
         "cat [<n>]": Key("colon:%(n)d"),
         "slash [<n>]": Key("slash:%(n)d"),
         "equit [<n>]": Key("equal:%(n)d"),
+
 
         ### Maps ###
         "<letters>": Text("%(letters)s"),
@@ -194,6 +195,22 @@ grammarCfg.cmd.map = Item(
         "peek [<n>]": Key("a-pgdown:%(n)d"),
         "line cursors": Key("sa-i"),
         "code last edit": Key("c-k, c-q"),
+
+        ### Emmet ###
+        "wrap tag": Key("c-e, w"),
+        "update tag": Key("c-e, e"),
+        "(split|join) tag": Key("c-e, s"),
+        "remove tag": Key("c-e, r"),
+        "balance in": Key("c-e, d"),
+        "balance out": Key("c-e, f"),
+        "jump match": Key("c-e, a"),
+        "nextit": Key("c-e, v"),
+        "prexit": Key("c-e, c"),
+        # "bigit": Key("c-e, t"),
+        # "bigex": Key("c-e, c-t"),
+        # "smallit": Key("c-e, g"),
+        # "smallex": Key("c-e, c-g"),
+
 
         ### MetaGo extension ###
         "hyper [<letters>]": Key("a-semicolon/5, %(letters)s"),
