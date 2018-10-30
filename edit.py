@@ -284,4 +284,5 @@ class KeystrokeRule(MappingRule):
     ]
     defaults = {
         "n": 1,
+        "nav": 1,
     }
