@@ -1,0 +1,25 @@
+{
+  "name": "S M L",
+  "tags": ["all"],
+  "vocabulary": {
+    "val": "val ",
+    "if": "if ",
+    "then": "then ",
+    "else": "else ",
+    "and also": "andalso ",
+    "or else": "orelse",
+    "op not": " <> ",
+    "true": "true",
+    "false": "false",
+    "use": "use ",
+    "fun": "fun",
+    "null": "null",
+    "head": "hd",
+    "tail": "tl",
+    "let": "let ",
+    "in": "in ",
+    "end": "end",
+    "some": "SOME",
+    "none": "NONE"
+  }
+}
