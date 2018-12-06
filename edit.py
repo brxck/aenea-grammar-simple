@@ -10,7 +10,6 @@
 #
 # Licensed under LGPL
 
-import time
 from natlink import setMicState
 from aenea import *
 
@@ -22,10 +21,6 @@ from lib.maps import (
 )
 
 from lib import sound
-
-
-def pause():
-    time.sleep(1)
 
 
 def cancel_and_sleep(text=None, text2=None):
@@ -197,6 +192,7 @@ grammarCfg.cmd.map = Item(
         "code last edit": Key("c-k, c-q"),
 
         ### Emmet ###
+        "rip": Key("s-space"),
         "wrap tag": Key("c-e, w"),
         "update tag": Key("c-e, e"),
         "(split|join) tag": Key("c-e, s"),

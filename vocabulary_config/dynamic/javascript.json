@@ -13,44 +13,10 @@
     "await": "await ",
     "async": "async ",
 
-    "try": [
-      { "type": "Text", "args": ["try {"] },
-      { "type": "Key", "args": ["enter"] }
-    ],
-    "catch": [
-      { "type": "Text", "args": [" catch () {"] },
-      { "type": "Key", "args": ["left:3"] }
-    ],
-    "finally": [
-      { "type": "Text", "args": [" finally {"] },
-      { "type": "Key", "args": ["enter"] }
-    ],
-
-    "do loop": [
-      { "type": "Text", "args": ["do {"] },
-      { "type": "Key", "args": ["enter"] }
-    ],
-    "for loop": [
-      { "type": "Text", "args": ["for () {"] },
-      { "type": "Key", "args": ["left:3"] }
-    ],
-    "while loop": [
-      { "type": "Text", "args": ["while () {"] },
-      { "type": "Key", "args": ["left:3"] }
-    ],
-    "with block": [
-      { "type": "Text", "args": ["with () {"] },
-      { "type": "Key", "args": ["left:3"] }
-    ],
-
     "if": "if (",
-    "else": " else ",
+    "else": " else {",
     "else if": [
       { "type": "Text", "args": [" else if () {"] },
-      { "type": "Key", "args": ["left:3"] }
-    ],
-    "op switch": [
-      { "type": "Text", "args": ["switch () {"] },
       { "type": "Key", "args": ["left:3"] }
     ],
 

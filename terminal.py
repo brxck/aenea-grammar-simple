@@ -21,6 +21,9 @@ class TerminalRule(MappingRule):
         "beats": Text("beets"),
         "beer me some tunes": Text("ncmpcpp") + Key("enter"),
 
+        "npm": Text("npm "),
+        "npm run": Text("npm run "),
+
         "git status": Text("git status"),
         "git add": Text("git add "),
         "git commit": Text('git commit -m ""') + Key("left"),
