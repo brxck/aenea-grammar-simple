@@ -5,18 +5,53 @@ from aenea import *
 
 class DesktopRule(MappingRule):
     mapping = {
+        ### Basics ###
+        "launch (terminal|term)": Key("w-enter"),
+        "look left": Key("w-j"),
+        "look down": Key("w-k"),
+        "look up": Key("w-l"),
+        "look right": Key("w-semicolon"),
+        "look parent": Key("w-a"),
+        "change look": Key("w-space"),
+
+        ### Moving Windows ###
+        "snap left": Key("ws-j"),
+        "snap down": Key("ws-k"),
+        "snap up": Key("ws-l"),
+        "snap right": Key("ws-semicolon"),
+
+        ### Modifying Windows ###
+        "snap full": Key("w-f"),
+        "snap lat": Key("w-v"),
+        "snap long": Key("w-h"),
+        "snap resize": Key("w-r"),
+
+        ### Container Layout ###
+        "snap default": Key("w-e"),
+        "snap stack": Key("w-s"),
+        "snap tab": Key("w-w"),
+
+        ### Floating ###
+        "snap float": Key("ws-space"),
+
+        ### Using Workspaces ###
+        "woke <n>": Key("w-:%(n)d"),
+        "snap <n>": Key("w-:%(n)d"),
+
+        ### Opening / Closing ###
+        "launch": Key("w-d"),
+        "snap kill": Key("ws-q"),
+
+        ### Restart /Exit ###
+        "I three reload": Key("ws-c"),
+        "I three restart": Key("ws-r"),
+        "I three exit": Key("ws-e"),
+
+
         ### Windows ###
-        "snap screen": Key("w-up"),
-        "snap small": Key("w-down"),
-        "snap left": Key("w-left"),
-        "snap right": Key("w-right"),
         "snap close": Key("c-w"),
         "snap new": Key("c-n"),
         "snap quit": Key("c-q"),
-        "snap full": Key("f11"),
-
-        "snap in [<n>]": Key("alt:down, tab:%(n)d, alt:up"),
-        "snap out [<n>]": Key("alt:down, s-tab:%(n)d, alt:up"),
 
         ### Common controls ###
         "stamp": Key("c-s"),
@@ -33,29 +68,6 @@ class DesktopRule(MappingRule):
         "browse forward [<n>]": Key("a-right/15:%(n)d"),
         "nexta [<n>]": Key("c-pgdown:%(n)d"),
         "prexta [<n>]": Key("c-pgup:%(n)d"),
-        "emote [<text>]": Key("scaw-j") + Text("%(text)s"),
-
-        ### Workspaces ###
-        "woke <n>": Key("caw-%(n)d"),
-        "woke fiver": Key("caw-5"),
-        "whip [<n>]": Key("ca-right:%(n)d"),
-        "wox [<n>]": Key("ca-left:%(n)d"),
-        "snap whip [<n>]": Key("sca-right:%(n)d"),
-        "snap wox [<n>]": Key("sca-left:%(n)d"),
-        "snap sling <n>": Key("scaw-%(n)d"),
-
-        ### Albert ###
-        "spot [<text>]": Key("scaw-space/10") + Text("%(text)s"),
-        "spike [<text>]": Key("scaw-space/10") + Text("%(text)s") + Key("enter"),
-
-        ### Launch ###
-        "launch (term|terminal)": Key("scaw-e"),
-        "launch files": Key("scaw-w"),
-        "launch music": Key("scaw-t"),
-        "launch browser": Key("scaw-r"),
-        "launch monitor": Key("scaw-q"),
-        "launch code": Key("scaw-d"),
-        "quake": Key("scaw-slash/3500"),
 
         ### Media ###
         # "[toggle] mute": Key("w-"),
